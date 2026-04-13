@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>กระท่อมไทย</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="nav">
+    <a class="nav-brand" href="#">
+      <div class="nav-logo">🌿</div>
+      <span class="nav-name">กระท่อมไทย</span>
+    </a>
+    <div class="nav-links">
+      <a href="#benefits">สรรพคุณ</a>
+      <a href="#law">กฎหมาย</a>
+      <a href="#regions">แหล่งเพาะปลูก</a>
+      <!-- <a href="#products">สินค้า</a> -->
+      <a href="#contact">ติดต่อ</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-pill">🌿 ดูแลกระท่อม ให้กระท่อมดูแลคุณ</div>
+    <h1>ใบกระท่อมคุณภาพ<br><span>จากสวนธรรมชาติ</span></h1>
+    <!-- <p>คัดสรรจากสวนเกษตรอินทรีย์ ไม่ใช้สารเคมี ส่งตรงถึงมือคุณทั่วประเทศไทย</p> -->
+    <div class="hero-btns">
+      <button class="btn-fill" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">ดูรูปแบบสินค้า</button>
+      <button class="btn-ghost" onclick="document.getElementById('benefits').scrollIntoView({behavior:'smooth'})">อ่านสรรพคุณ</button>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <div class="trustbar">
+    <!-- <div class="trust-item"><div class="trust-dot"></div>ถูกกฎหมาย 100%</div>
+    <div class="trust-item"><div class="trust-dot"></div>ไม่ใช้สารเคมี</div>
+    <div class="trust-item"><div class="trust-dot"></div>ส่งทั่วไทยภายใน 24 ชม.</div>
+    <div class="trust-item"><div class="trust-dot"></div>รับประกันความสด</div> -->
+  </div>
+
+  <!-- สรรพคุณ -->
+  <section id="benefits" class="props-section">
+    <div class="props-inner">
+      <div class="sec-label">ความรู้เกี่ยวกับกระท่อม</div>
+      <div class="sec-title">สรรพคุณของใบกระท่อม</div>
+      <div class="sec-sub">ใบกระท่อมมีประวัติการใช้ในภูมิปัญญาไทยมาช้านาน ปัจจุบันมีการศึกษาทางวิทยาศาสตร์เพิ่มมากขึ้น</div>
+      <div class="props-grid">
+        <div class="prop-card">
+          <div class="prop-num">01</div>
+          <h4>บรรเทาอาการปวดเมื่อย</h4>
+          <p>ใบกระท่อมมีสารมิตราไจนีน (Mitragynine) ที่มีคุณสมบัติช่วยบรรเทาอาการปวดตามร่างกาย นิยมใช้ในกลุ่มผู้ใช้แรงงานมาแต่โบราณ</p>
+          <span class="prop-tag">ภูมิปัญญาดั้งเดิม</span>
+        </div>
+        <div class="prop-card">
+          <div class="prop-num">02</div>
+          <h4>เพิ่มความกระปรี้กระเปร่า</h4>
+          <p>การบริโภคในปริมาณน้อยช่วยให้รู้สึกตื่นตัว มีพลังงาน ลดความเหนื่อยล้า เหมาะสำหรับผู้ที่ต้องการความสดชื่น</p>
+          <span class="prop-tag">พลังงาน</span>
+        </div>
+        <div class="prop-card">
+          <div class="prop-num">03</div>
+          <h4>ช่วยระบบย่อยอาหาร</h4>
+          <p>ในตำรับยาพื้นบ้านไทย มีการนำใบกระท่อมมาใช้แก้อาการท้องเสีย และช่วยปรับสมดุลระบบย่อยอาหาร</p>
+          <span class="prop-tag">สุขภาพ</span>
+        </div>
+        <div class="prop-card">
+          <div class="prop-num">04</div>
+          <h4>ผ่อนคลายความเครียด</h4>
+          <p>การรับประทานในปริมาณที่เหมาะสมอาจช่วยลดความเครียด ทำให้รู้สึกผ่อนคลาย ใจเย็น และนอนหลับได้ดีขึ้น</p>
+          <span class="prop-tag">ผ่อนคลาย</span>
+        </div>
+        <div class="prop-card">
+          <div class="prop-num">05</div>
+          <h4>ต้านอนุมูลอิสระ</h4>
+          <p>มีงานวิจัยพบว่าใบกระท่อมมีสารต้านอนุมูลอิสระที่ช่วยปกป้องเซลล์ร่างกาย อย่างไรก็ตามยังอยู่ในช่วงการศึกษา</p>
+          <span class="prop-tag">งานวิจัย</span>
+        </div>
+        <div class="prop-card">
+          <div class="prop-num">06</div>
+          <h4>แก้อาการไข้</h4>
+          <p>ตำรับยาโบราณของภาคใต้และภาคกลางมีการใช้ใบกระท่อมต้มดื่มเพื่อลดไข้และช่วยให้ร่างกายฟื้นตัวเร็วขึ้น</p>
+          <span class="prop-tag">ภูมิปัญญาดั้งเดิม</span>
+        </div>
+      </div>
+      <div class="caution-box">
+        <span class="caution-icon">⚠️</span>
+        <p>ข้อควรระวัง: การบริโภคควรอยู่ในปริมาณที่เหมาะสม ไม่แนะนำสำหรับหญิงตั้งครรภ์ ให้นมบุตร ผู้มีโรคประจำตัว หรือผู้ใช้ยาบางชนิด ควรปรึกษาแพทย์ก่อนใช้</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- กฎหมาย -->
+  <section id="law">
+    <div class="section">
+      <div class="sec-label">ข้อมูลทางกฎหมาย</div>
+      <div class="sec-title">สถานะทางกฎหมายของกระท่อม</div>
+      <div class="sec-sub">ตั้งแต่ปี 2564 กระท่อมได้รับการถอดออกจากบัญชียาเสพติด ทำให้การปลูก ครอบครอง และจำหน่ายเป็นสิ่งถูกกฎหมายในประเทศไทย</div>
+
+      <div class="law-timeline">
+        <div class="law-step">
+          <div class="law-step-icon">📜</div>
+          <div class="law-step-body">
+            <div class="law-step-date">26 สิงหาคม 2564</div>
+            <h4>พระราชบัญญัติยาเสพติดให้โทษ (ฉบับที่ 8) พ.ศ. 2564</h4>
+            <p>รัฐสภาไทยลงมติผ่านกฎหมายถอดกระท่อมออกจากบัญชียาเสพติดประเภท 5 ทำให้กระท่อมไม่ถือเป็นยาเสพติดอีกต่อไปตั้งแต่วันที่กฎหมายมีผลบังคับใช้</p>
+          </div>
+        </div>
+        <div class="law-step">
+          <div class="law-step-icon">✅</div>
+          <div class="law-step-body">
+            <div class="law-step-date">สิทธิ์ที่ประชาชนได้รับ</div>
+            <h4>สามารถดำเนินการได้โดยเสรี</h4>
+            <p>ประชาชนและเกษตรกรสามารถปลูก ครอบครอง บริโภค และจำหน่ายใบกระท่อมได้อย่างถูกกฎหมาย โดยไม่มีข้อจำกัดด้านปริมาณสำหรับการใช้ส่วนตัว</p>
+          </div>
+        </div>
+        <div class="law-step">
+          <div class="law-step-icon">🚫</div>
+          <div class="law-step-body">
+            <div class="law-step-date">ข้อห้ามที่ยังมีผล</div>
+            <h4>สิ่งที่ยังคงผิดกฎหมาย</h4>
+            <p>การนำกระท่อมไปผสมกับสารอื่น เช่น ยาแก้ไอที่มีโคดีอีน หรือสุรา ("4×100") ยังคงมีโทษทางกฎหมาย รวมถึงห้ามจำหน่ายให้ผู้เยาว์อายุต่ำกว่า 18 ปี และสตรีมีครรภ์</p>
+          </div>
+        </div>
+        <div class="law-step">
+          <div class="law-step-icon">🏪</div>
+          <div class="law-step-body">
+            <div class="law-step-date">การควบคุมเชิงพาณิชย์</div>
+            <h4>การจำหน่ายเชิงพาณิชย์</h4>
+            <p>ผู้ประกอบการที่ต้องการจำหน่ายในเชิงพาณิชย์ขนาดใหญ่ควรปฏิบัติตามระเบียบของ อย. และกรมการแพทย์แผนไทย เพื่อความถูกต้องครบถ้วน</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="law-note">
+        <span class="law-note-icon">ℹ️</span>
+        <p>ข้อมูลนี้เป็นการสรุปเบื้องต้นเพื่อการศึกษา หากต้องการข้อมูลทางกฎหมายที่ถูกต้องครบถ้วน ควรตรวจสอบกับสำนักงานคณะกรรมการอาหารและยา (อย.) หรือที่ปรึกษากฎหมาย</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- แหล่งเพาะปลูก -->
+  <section id="regions" class="regions-section">
+    <div class="regions-inner">
+      <div class="sec-label">แหล่งผลิตในประเทศ</div>
+      <div class="sec-title">แหล่งเพาะปลูกกระท่อมในไทย</div>
+      <div class="sec-sub">กระท่อมเป็นพืชพื้นเมืองของภูมิภาคเอเชียตะวันออกเฉียงใต้ ในไทยพบมากทางภาคใต้และภาคกลาง เจริญเติบโตได้ดีในสภาพอากาศร้อนชื้น</div>
+      <div class="regions-grid">
+
+        <div class="region-card">
+          <div class="region-header region-south">
+            <span class="region-icon">🌴</span>
+            <div>
+              <div class="region-name">ภาคใต้</div>
+              <div class="region-tag">แหล่งดั้งเดิม</div>
+            </div>
+          </div>
+          <div class="region-body">
+            <p>แหล่งปลูกดั้งเดิมที่ใหญ่ที่สุดของไทย ด้วยสภาพอากาศร้อนชื้นและดินที่อุดมสมบูรณ์ ทำให้กระท่อมภาคใต้มีคุณภาพสูงเป็นที่ยอมรับ</p>
+            <ul class="region-list">
+              <li>สุราษฎร์ธานี — แหล่งปลูกรายใหญ่ ดินร่วนปนทราย</li>
+              <li>นครศรีธรรมราช — สวนขนาดใหญ่ ใบหนา สารสูง</li>
+              <li>กระบี่ &amp; พังงา — สภาพป่าชื้น เหมาะปลูกธรรมชาติ</li>
+              <li>ปัตตานี &amp; ยะลา — ภูมิปัญญาพื้นเมืองสืบทอดยาวนาน</li>
+              <li>สงขลา — เกษตรกรรมสมัยใหม่ผสมภูมิปัญญาเดิม</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="region-card">
+          <div class="region-header region-central">
+            <span class="region-icon">🌾</span>
+            <div>
+              <div class="region-name">ภาคกลาง</div>
+              <div class="region-tag">กำลังขยายตัว</div>
+            </div>
+          </div>
+          <div class="region-body">
+            <p>หลังกฎหมายเปิดเสรี เกษตรกรภาคกลางหันมาปลูกกระท่อมเชิงพาณิชย์มากขึ้น โดยใช้ระบบน้ำหยดและเกษตรสมัยใหม่ควบคุมคุณภาพ</p>
+            <ul class="region-list">
+              <li>กาญจนบุรี — พื้นที่กว้าง เหมาะสวนขนาดใหญ่</li>
+              <li>ราชบุรี — ดินดี น้ำสะอาด ผลผลิตสม่ำเสมอ</li>
+              <li>ชัยนาท &amp; สิงห์บุรี — เกษตรกรรมเชิงพาณิชย์</li>
+              <li>ฉะเชิงเทรา — ใกล้ตลาดกรุงเทพฯ ขนส่งสะดวก</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="region-card">
+          <div class="region-header region-east">
+            <span class="region-icon">🌿</span>
+            <div>
+              <div class="region-name">ภาคตะวันออก</div>
+              <div class="region-tag">พื้นที่ใหม่</div>
+            </div>
+          </div>
+          <div class="region-body">
+            <p>ภาคตะวันออกมีภูมิอากาศและดินที่เอื้อต่อการปลูกกระท่อม โดยเฉพาะพื้นที่ที่มีความชื้นสูงและระบบชลประทานดี</p>
+            <ul class="region-list">
+              <li>จันทบุรี — ดินอุดม เหมาะผลไม้และสมุนไพร</li>
+              <li>ตราด — ความชื้นสูง ใบสด สีเขียวเข้ม</li>
+              <li>ระยอง — ปลูกร่วมกับพืชอื่น เพิ่มรายได้เกษตรกร</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="region-card">
+          <div class="region-header region-north">
+            <span class="region-icon">🏔️</span>
+            <div>
+              <div class="region-name">ภาคเหนือ &amp; อีสาน</div>
+              <div class="region-tag">ทดลองปลูก</div>
+            </div>
+          </div>
+          <div class="region-body">
+            <p>แม้อากาศจะแห้งกว่า แต่ในพื้นที่ชลประทานและหุบเขาที่ชื้น เกษตรกรเริ่มทดลองปลูกกระท่อมได้ผลดีขึ้นเรื่อยๆ</p>
+            <ul class="region-list">
+              <li>เชียงราย — พื้นที่ชุ่มน้ำ หุบเขาชื้น</li>
+              <li>อุดรธานี — ทดลองปลูกในพื้นที่ชลประทาน</li>
+              <li>ศรีสะเกษ — เกษตรกรเริ่มสนใจปลูกเพิ่มรายได้</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="region-info-box">
+        <div class="region-info-icon">🌱</div>
+        <div>
+          <h4>สภาพที่เหมาะสมต่อการปลูกกระท่อม</h4>
+          <p>กระท่อมเจริญเติบโตได้ดีในดินร่วนระบายน้ำดีอุณหภูมิ 25–35°C ความชื้นสัมพัทธ์ 70–90% และต้องการน้ำสม่ำเสมอไม่ทนน้ำขัง แสงแดดเต็มวันหรือร่มรำไรก็ได้ผลดี</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Products / Market Forms -->
+  <section id="products">
+    <div class="section">
+      <div class="sec-label">รูปแบบการจำหน่าย</div>
+      <div class="sec-title">กระท่อมในตลาด — มีกี่รูปแบบ?</div>
+      <div class="sec-sub">กระท่อมสามารถจำหน่ายได้หลากหลายรูปแบบ ตั้งแต่ใบสดจากสวนไปจนถึงผลิตภัณฑ์แปรรูปมูลค่าสูง ราคาที่แสดงเป็นราคาตลาดทั่วไปอ้างอิงจากการซื้อขายในประเทศไทย</div>
+
+      <!-- Line -->
+      <div style="
+        border: 100cm;
+        height: 3px;
+        background-color: #3E8A5E;
+        margin: 0px 20px 20px 0px;">
+      </div>
+
+      <!-- กลุ่ม 1: จำหน่ายในรูปใบ -->
+      <div class="mkt-group">
+        <div class="mkt-group-label"><h3>🌿 จำหน่ายในรูปใบ</h3></div>
+        <br>
+        <div class="mkt-cards">
+          <div class="mkt-card">
+            <h4>ใบสดทั้งใบ <span class="mkt-icon">🍃</span></h4>
+            <p>จำหน่ายใบสดเก็บใหม่ นิยมในกลุ่มผู้บริโภคโดยตรงและร้านค้าปลีกในท้องถิ่น อายุการเก็บรักษาสั้น ควรใช้ภายใน 2–3 วัน</p>
+            <div class="mkt-price-block">
+              <div class="mkt-price-row">
+                <span class="mkt-price-label">ราคาส่ง (ปริมาณมาก)</span>
+                <span class="mkt-price">100 – 200 ฿/กก.</span>
+              </div>
+              <div class="mkt-price-row">
+                <span class="mkt-price-label">ราคาปลีก (ตลาดทั่วไป)</span>
+                <span class="mkt-price">250 – 400 ฿/กก.</span>
+              </div>
+              <br>
+            </div>
+          </div>
+
+          <div class="mkt-card">
+            <h4>ใบแห้ง(อบหรือตากแดด) 🍂<span class="mkt-icon"></span></h4>
+            <p>นำใบสดมาทำให้แห้ง ช่วยยืดอายุการเก็บรักษาได้นานหลายเดือน เหมาะสำหรับการขนส่งระยะไกล และผู้ที่ต้องการเก็บสต็อก</p>
+            <div class="mkt-price-block">
+              <div class="mkt-price-row">
+                <span class="mkt-price-label">ราคาส่ง</span>
+                <span class="mkt-price">800 – 1,200 ฿/กก.</span>
+              </div>
+              <div class="mkt-price-row">
+                <span class="mkt-price-label">ราคาปลีก</span>
+                <span class="mkt-price">1,500 – 2,500 ฿/กก.</span>
+              </div>
+              <br>
+            </div>
+          </div>
+
+          <div class="mkt-card">
+            <h4>ต้นกล้าและกิ่งพันธุ์ <span class="mkt-icon">🌱</span></h4>
+            <p>จำหน่ายต้นกล้าพร้อมปลูก อายุ 1–3 เดือน หรือกิ่งตอน เหมาะสำหรับเกษตรกรที่ต้องการขยายพื้นที่เพาะปลูกเอง</p>
+            <div class="mkt-price-block">
+              <div class="mkt-price-row">
+                <span class="mkt-price-label">ต้นกล้า (อายุ 1–2 เดือน)</span>
+                <span class="mkt-price">50 – 100 ฿/ต้น</span>
+              </div>
+              <div class="mkt-price-row">
+                <span class="mkt-price-label">กิ่งตอนพันธุ์ดี</span>
+                <span class="mkt-price">150 – 300 ฿/กิ่ง</span>
+              </div>
+              <br>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Line -->
+      <div style="
+        border: 100cm;
+        height: 3px;
+        background-color: #3E8A5E;
+        margin: 0px 20px 20px 0px;">
+      </div>
+
+      <!-- กลุ่ม 2: ผลิตภัณฑ์แปรรูป -->
+      <div class="mkt-group">
+        <div class="mkt-group-label"><h3>⚗️ ผลิตภัณฑ์แปรรูป</h3></div>
+        <br>
+        <div class="mkt-cards">
+
+          <div class="mkt-card">
+            <h4>ผงกระท่อมบดละเอียด <span class="mkt-icon">🧂</span></h4>
+            <p>นำใบแห้งมาบดให้ละเอียด มูลค่าเพิ่มสูงขึ้นมาก นิยมในกลุ่มผู้บริโภคที่ต้องการความสะดวก และตลาดส่งออก (ในประเทศที่ถูกกฎหมาย)</p>
+            <div class="mkt-price-block">
+              <div class="mkt-price-row">
+                <span class="mkt-price-label">ราคาส่ง</span>
+                <span class="mkt-price">2,000 – 4,000 ฿/กก.</span>
+              </div>
+              <div class="mkt-price-row">
+                <span class="mkt-price-label">ราคาปลีก (แพ็คเล็ก 100g)</span>
+                <span class="mkt-price">300 – 600 ฿/แพ็ค</span>
+              </div>
+              <br>
+            </div>
+          </div>
+
+          <div class="mkt-card">
+            <h4>ชากระท่อม(ชาสมุนไพร) <span class="mkt-icon">🍵</span></h4>
+            <p>แปรรูปเป็นชาซอง หรือชาใบแห้งพร้อมชง บรรจุในรูปแบบที่ดูดีและจำหน่ายได้ในร้านสะดวกซื้อหรือร้านสุขภาพ มูลค่าเพิ่มสูง</p>
+            <div class="mkt-price-block">
+              <div class="mkt-price-row">
+                <span class="mkt-price-label">ชาซอง (กล่อง 20 ซอง)</span>
+                <span class="mkt-price">150 – 300 ฿/กล่อง</span>
+              </div>
+              <div class="mkt-price-row">
+                <span class="mkt-price-label">ชาใบแห้งพร้อมชง 50g</span>
+                <span class="mkt-price">120 – 250 ฿/แพ็ค</span>
+              </div>
+              <br>
+            </div>
+          </div>
+
+          <div class="mkt-card">
+            <h4>แคปซูลสมุนไพร <span class="mkt-icon">💊</span></h4>
+            <p>บรรจุผงกระท่อมในแคปซูล ง่ายต่อการบริโภคและพกพา เป็นผลิตภัณฑ์มูลค่าสูงสุดในกลุ่ม ต้องมีฉลากและได้มาตรฐาน อย.</p>
+            <div class="mkt-price-block">
+              <div class="mkt-price-row">
+                <span class="mkt-price-label">แคปซูล (ขวด 60 แคปซูล)</span>
+                <span class="mkt-price">300 – 700 ฿/ขวด</span>
+              </div>
+              <div class="mkt-price-row">
+                <span class="mkt-price-label">ราคาส่ง OEM</span>
+                <span class="mkt-price">5,000 – 10,000 ฿/กก. ผง</span>
+              </div>
+              <br>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Line -->
+      <div style="
+        border: 100cm;
+        height: 3px;
+        background-color: #3E8A5E;
+        margin: 0px 20px 20px 0px;">
+      </div>
+
+      <!-- กลุ่ม 3: รูปแบบอื่น -->
+      <div class="mkt-group">
+        <div class="mkt-group-label"><h3>🧃 รูปแบบอื่นๆ</h3></div>
+        <br>
+        <div class="mkt-cards mkt-cards-2">
+
+          <div class="mkt-card">
+            <h4>เครื่องดื่มกระท่อม <span class="mkt-icon">🥤</span></h4>
+            <p>น้ำต้มกระท่อมพร้อมดื่ม หรือผสมในเครื่องดื่มสมุนไพร จำหน่ายในร้านอาหาร ตลาดนัด หรือแบบบรรจุขวด เป็นตลาดที่กำลังเติบโตเร็วหลังกฎหมายเปิด</p>
+            <div class="mkt-price-block">
+              <div class="mkt-price-row">
+                <span class="mkt-price-label">แก้ว/ขวดปลีก (ร้านอาหาร)</span>
+                <span class="mkt-price">20 – 50 ฿/แก้ว</span>
+              </div>
+              <div class="mkt-price-row">
+                <span class="mkt-price-label">บรรจุขวดพร้อมขาย</span>
+                <span class="mkt-price">35 – 80 ฿/ขวด</span>
+              </div>
+              <br>
+            </div>
+          </div>
+
+          <div class="mkt-card">
+            <h4>สารสกัดและทิงเจอร์ <span class="mkt-icon">🌿</span></h4>
+            <p>สกัดสารออกฤทธิ์ในรูปของเหลวเข้มข้น มูลค่าสูงมาก เหมาะสำหรับอุตสาหกรรมยาและผลิตภัณฑ์เสริมสุขภาพ ต้องมีความเชี่ยวชาญในการผลิต</p>
+            <div class="mkt-price-block">
+              <div class="mkt-price-row">
+                <span class="mkt-price-label">ทิงเจอร์ (15ml)</span>
+                <span class="mkt-price">200 – 500 ฿/ขวด</span>
+              </div>
+              <div class="mkt-price-row">
+                <span class="mkt-price-label">สารสกัดเข้มข้น (วัตถุดิบ)</span>
+                <span class="mkt-price">15,000 – 30,000 ฿/กก.</span>
+              </div>
+              <br>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="mkt-note">
+        <span class="mkt-note-icon">📊</span>
+        <p>ราคาที่แสดงเป็นราคาอ้างอิงในตลาดทั่วไปของประเทศไทย อาจแตกต่างตามคุณภาพ ปริมาณ ฤดูกาล และพื้นที่ ราคาจริงควรตรวจสอบกับผู้ค้าในพื้นที่</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="footer">
+    <p>🌿 กระท่อมไทย — ให้กระท่อมดูแลคุณ</p>
+    <div class="footer-links">
+      <a href="#">เกี่ยวกับเรา</a>
+      <a href="#">ติดต่อเรา</a>
+      <a href="#">Line: @kratom</a>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
