@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SAIM INNOTECH FARMS - Advanced Kratom Extraction & Innovation</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -20,74 +20,96 @@
     </div>
 
     <ul class="nav-links">
-      <li><a href="#" class="active">Home</a></li>
-      <li><a href="#">About Us</a></li>
-      <li><a href="#">Products</a></li>
-      <li><a href="#">Technology</a></li>
-      <li><a href="#">Quality</a></li>
-      <li><a href="#">OEM / Private Label</a></li>
-      <li><a href="#">News &amp; Blog</a></li>
-      <li><a href="#">Contact Us</a></li>
+      <!-- [แก้ไข] ใส่ data-i18n="..." ทุก link เพื่อให้ script.js รู้ว่า element ไหนต้องแปล -->
+      <li><a href="#" class="active" data-i18n="nav_home">Home</a></li>
+      <li><a href="#about" data-i18n="nav_about">About Us</a></li>
+      <li><a href="#products" data-i18n="nav_products">Products</a></li>
+      <li><a href="#" data-i18n="nav_tech">Technology</a></li>
+      <li><a href="#" data-i18n="nav_quality">Quality</a></li>
+      <li><a href="#" data-i18n="nav_oem">OEM / Private Label</a></li>
+      <li><a href="#" data-i18n="nav_news">News &amp; Blog</a></li>
+      <li><a href="#" data-i18n="nav_contact">Contact Us</a></li>
     </ul>
 
     <div class="nav-right">
-      <div class="lang-btn">🇬🇧 EN ▾</div>
-      <a href="#" class="quote-btn">✉ Get A Quote</a>
+      <!-- [แก้ไข] เปลี่ยนจาก div ธรรมดา → ทำเป็น dropdown ภาษาแบบ professional
+           โครงสร้าง:
+           - .lang-switcher   = wrapper ทั้งหมด (ใช้ position:relative ใน CSS)
+           - #langToggle      = ปุ่มที่กดเพื่อเปิด/ปิด dropdown
+           - #currentFlag     = emoji ธงชาติที่เลือกอยู่ (อัปเดตโดย script.js)
+           - #currentLangCode = รหัสภาษา เช่น EN หรือ TH (อัปเดตโดย script.js)
+           - #langDropdown    = กล่อง dropdown ที่ซ่อน/แสดงด้วย class "open"
+           - data-lang="en/th" = บอก script.js ว่าตัวเลือกนี้คือภาษาอะไร -->
+      <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-btn" id="langToggle">
+          <span id="currentFlag">🇬🇧</span>
+          <span id="currentLangCode">EN</span>
+          <span class="lang-caret">▾</span>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+          <a href="#" class="lang-option" data-lang="en">🇬🇧 English</a>
+          <a href="#" class="lang-option" data-lang="th">🇹🇭 ภาษาไทย</a>
+        </div>
+      </div>
+
+      <a href="#" class="quote-btn" data-i18n="nav_quote">✉ Get A Quote</a>
     </div>
   </nav>
 
   <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="hero-content">
-      <div class="hero-welcome">Welcome to</div>
+      <!-- [แก้ไข] ใส่ data-i18n ทุก text ใน hero section -->
+      <div class="hero-welcome" data-i18n="hero_welcome">Welcome to</div>
       <h1>
         SAIM
         <span class="brand-line2">INNOTECH FARMS</span>
       </h1>
-      <div class="hero-tagline">Advanced Kratom Extraction &amp; Innovation</div>
-      <p>We combine modern technology with sustainable farming to deliver premium quality kratom products for a better world.</p>
+      <div class="hero-tagline" data-i18n="hero_tagline">Advanced Kratom Extraction &amp; Innovation</div>
+      <p data-i18n="hero_desc">We combine modern technology with sustainable farming to deliver premium quality kratom products for a better world.</p>
       <div class="hero-btns">
-        <a href="#" class="btn-primary">Our Products →</a>
-        <a href="#" class="btn-outline">About Us →</a>
+        <a href="#" class="btn-primary" data-i18n="hero_btn_products">Our Products →</a>
+        <a href="#" class="btn-outline" data-i18n="hero_btn_about">About Us →</a>
       </div>
     </div>
   </section>
 
   <!-- ===== CERT BAR ===== -->
   <div class="cert-bar">
+    <!-- [แก้ไข] ใส่ data-i18n ทั้ง title และ desc ของแต่ละ cert item -->
     <div class="cert-item">
       <div class="cert-icon">⬡</div>
       <div class="cert-text">
-        <div class="cert-title">GMP Certified</div>
-        <div class="cert-desc">Good Manufacturing Practice</div>
+        <div class="cert-title" data-i18n="cert_gmp_title">GMP Certified</div>
+        <div class="cert-desc" data-i18n="cert_gmp_desc">Good Manufacturing Practice</div>
       </div>
     </div>
     <div class="cert-item">
       <div class="cert-icon">☽</div>
       <div class="cert-text">
-        <div class="cert-title">Halal Certified</div>
-        <div class="cert-desc">Halal Standard Assurance</div>
+        <div class="cert-title" data-i18n="cert_halal_title">Halal Certified</div>
+        <div class="cert-desc" data-i18n="cert_halal_desc">Halal Standard Assurance</div>
       </div>
     </div>
     <div class="cert-item">
       <div class="cert-icon">🌿</div>
       <div class="cert-text">
-        <div class="cert-title">Organic Farming</div>
-        <div class="cert-desc">100% Organic Cultivation</div>
+        <div class="cert-title" data-i18n="cert_organic_title">Organic Farming</div>
+        <div class="cert-desc" data-i18n="cert_organic_desc">100% Organic Cultivation</div>
       </div>
     </div>
     <div class="cert-item">
       <div class="cert-icon">🌐</div>
       <div class="cert-text">
-        <div class="cert-title">Export Quality</div>
-        <div class="cert-desc">Global Standard Products</div>
+        <div class="cert-title" data-i18n="cert_export_title">Export Quality</div>
+        <div class="cert-desc" data-i18n="cert_export_desc">Global Standard Products</div>
       </div>
     </div>
     <div class="cert-item">
       <div class="cert-icon">🔬</div>
       <div class="cert-text">
-        <div class="cert-title">Lab Tested &amp; Safe</div>
-        <div class="cert-desc">Quality &amp; Safety Guarantee</div>
+        <div class="cert-title" data-i18n="cert_lab_title">Lab Tested &amp; Safe</div>
+        <div class="cert-desc" data-i18n="cert_lab_desc">Quality &amp; Safety Guarantee</div>
       </div>
     </div>
   </div>
@@ -98,36 +120,39 @@
       <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&q=80" alt="Lab Research">
     </div>
     <div class="about-content">
-      <div class="section-label">About Us</div>
-      <h2 class="section-title">Innovation From Farm<br>To Future</h2>
-      <p class="about-text">SAIM INNOTECH FARMS is a leading kratom producer and exporter from Thailand. We are committed to innovation, quality, and sustainability in every step of our process — from organic farming and advanced extraction to finished products.</p>
+      <!-- [แก้ไข] ใส่ data-i18n ทุก text ใน about section -->
+      <div class="section-label" data-i18n="about_label">About Us</div>
+      <h2 class="section-title" data-i18n="about_title">Innovation From Farm To Future</h2>
+      <p class="about-text" data-i18n="about_desc">SAIM INNOTECH FARMS is a leading kratom producer and exporter from Thailand. We are committed to innovation, quality, and sustainability in every step of our process — from organic farming and advanced extraction to finished products.</p>
       <div class="stats-grid">
         <div class="stat-item">
           <div class="stat-num">100<span>+</span></div>
-          <div class="stat-label">Hectares of Organic Farms</div>
+          <!-- [แก้ไข] label ของ stat ก็ต้องแปลด้วย -->
+          <div class="stat-label" data-i18n="stat_farms">Hectares of Organic Farms</div>
         </div>
         <div class="stat-item">
           <div class="stat-num">10<span>+</span></div>
-          <div class="stat-label">Years of Experience</div>
+          <div class="stat-label" data-i18n="stat_exp">Years of Experience</div>
         </div>
         <div class="stat-item">
           <div class="stat-num">50<span>+</span></div>
-          <div class="stat-label">Products Worldwide</div>
+          <div class="stat-label" data-i18n="stat_products">Products Worldwide</div>
         </div>
         <div class="stat-item">
           <div class="stat-num">20<span>+</span></div>
-          <div class="stat-label">Countries Exported</div>
+          <div class="stat-label" data-i18n="stat_countries">Countries Exported</div>
         </div>
       </div>
-      <a href="#" class="btn-dark">Learn More About Us →</a>
+      <a href="#" class="btn-dark" data-i18n="about_btn">Learn More About Us →</a>
     </div>
   </section>
 
   <!-- ===== PRODUCTS ===== -->
   <section class="products" id="products">
-    <div class="section-label">Our Products</div>
-    <h2 class="section-title">Premium Kratom Products</h2>
-    <p class="section-subtitle">High quality kratom products for every lifestyle and business need</p>
+    <!-- [แก้ไข] ใส่ data-i18n ทุก text ใน products section -->
+    <div class="section-label" data-i18n="products_label">Our Products</div>
+    <h2 class="section-title" data-i18n="products_title">Premium Kratom Products</h2>
+    <p class="section-subtitle" data-i18n="products_subtitle">High quality kratom products for every lifestyle and business need</p>
 
     <div class="products-grid">
       <div class="product-card">
@@ -135,9 +160,10 @@
           <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Kratom Powder">
         </div>
         <div class="product-info">
-          <div class="product-name">Kratom Powder</div>
-          <div class="product-desc">Finely ground premium kratom leaves</div>
-          <a href="#" class="btn-view">View More →</a>
+          <div class="product-name" data-i18n="prod1_name">Kratom Powder</div>
+          <div class="product-desc" data-i18n="prod1_desc">Finely ground premium kratom leaves</div>
+          <!-- [แก้ไข] ปุ่ม View More ทุกอัน ใช้ key เดียวกัน "prod_btn" ประหยัดการเขียนคำแปล -->
+          <a href="#" class="btn-view" data-i18n="prod_btn">View More →</a>
         </div>
       </div>
       <div class="product-card">
@@ -145,9 +171,9 @@
           <img src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=400&q=80" alt="Kratom Capsules">
         </div>
         <div class="product-info">
-          <div class="product-name">Kratom Capsules</div>
-          <div class="product-desc">Convenient and precise dosage</div>
-          <a href="#" class="btn-view">View More →</a>
+          <div class="product-name" data-i18n="prod2_name">Kratom Capsules</div>
+          <div class="product-desc" data-i18n="prod2_desc">Convenient and precise dosage</div>
+          <a href="#" class="btn-view" data-i18n="prod_btn">View More →</a>
         </div>
       </div>
       <div class="product-card">
@@ -155,9 +181,9 @@
           <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&q=80" alt="Kratom Shot">
         </div>
         <div class="product-info">
-          <div class="product-name">Kratom Shot</div>
-          <div class="product-desc">Ready-to-drink kratom extract</div>
-          <a href="#" class="btn-view">View More →</a>
+          <div class="product-name" data-i18n="prod3_name">Kratom Shot</div>
+          <div class="product-desc" data-i18n="prod3_desc">Ready-to-drink kratom extract</div>
+          <a href="#" class="btn-view" data-i18n="prod_btn">View More →</a>
         </div>
       </div>
       <div class="product-card">
@@ -165,9 +191,9 @@
           <img src="https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=400&q=80" alt="Kratom Gummies">
         </div>
         <div class="product-info">
-          <div class="product-name">Kratom Gummies</div>
-          <div class="product-desc">Delicious and easy kratom experience</div>
-          <a href="#" class="btn-view">View More →</a>
+          <div class="product-name" data-i18n="prod4_name">Kratom Gummies</div>
+          <div class="product-desc" data-i18n="prod4_desc">Delicious and easy kratom experience</div>
+          <a href="#" class="btn-view" data-i18n="prod_btn">View More →</a>
         </div>
       </div>
       <div class="product-card">
@@ -175,9 +201,9 @@
           <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&q=80" alt="Kratom Liquid Extract">
         </div>
         <div class="product-info">
-          <div class="product-name">Kratom Liquid Extract</div>
-          <div class="product-desc">High potency liquid kratom extract</div>
-          <a href="#" class="btn-view">View More →</a>
+          <div class="product-name" data-i18n="prod5_name">Kratom Liquid Extract</div>
+          <div class="product-desc" data-i18n="prod5_desc">High potency liquid kratom extract</div>
+          <a href="#" class="btn-view" data-i18n="prod_btn">View More →</a>
         </div>
       </div>
     </div>
@@ -185,32 +211,33 @@
 
   <!-- ===== WHY CHOOSE US ===== -->
   <section class="why" id="why">
-    <div class="section-label">Why Choose Us</div>
+    <!-- [แก้ไข] ใส่ data-i18n ทุก text ใน why section -->
+    <div class="section-label" data-i18n="why_label">Why Choose Us</div>
     <div class="why-grid">
       <div class="why-item">
         <div class="why-icon">🏆</div>
-        <h4>Premium Quality</h4>
-        <p>We use high quality materials and strict quality control</p>
+        <h4 data-i18n="why1_title">Premium Quality</h4>
+        <p data-i18n="why1_desc">We use high quality materials and strict quality control</p>
       </div>
       <div class="why-item">
         <div class="why-icon">⚙️</div>
-        <h4>Advanced Technology</h4>
-        <p>Modern extraction and production technology</p>
+        <h4 data-i18n="why2_title">Advanced Technology</h4>
+        <p data-i18n="why2_desc">Modern extraction and production technology</p>
       </div>
       <div class="why-item">
         <div class="why-icon">🌱</div>
-        <h4>Sustainable Practices</h4>
-        <p>Environmental care and sustainable farming</p>
+        <h4 data-i18n="why3_title">Sustainable Practices</h4>
+        <p data-i18n="why3_desc">Environmental care and sustainable farming</p>
       </div>
       <div class="why-item">
         <div class="why-icon">🎯</div>
-        <h4>Custom Solutions</h4>
-        <p>OEM &amp; Private Label available</p>
+        <h4 data-i18n="why4_title">Custom Solutions</h4>
+        <p data-i18n="why4_desc">OEM &amp; Private Label available</p>
       </div>
       <div class="why-item">
         <div class="why-icon">🌐</div>
-        <h4>Global Support</h4>
-        <p>Professional support for your business</p>
+        <h4 data-i18n="why5_title">Global Support</h4>
+        <p data-i18n="why5_desc">Professional support for your business</p>
       </div>
     </div>
   </section>
@@ -221,43 +248,46 @@
       <div class="footer-brand">
         <div class="brand-top">SAIM</div>
         <div class="brand-sub">INNOTECH FARMS</div>
-        <p>Advanced Kratom Extraction &amp; Innovation for a Better World.</p>
+        <!-- [แก้ไข] ใส่ data-i18n ใน footer ด้วย -->
+        <p data-i18n="footer_brand_desc">Advanced Kratom Extraction &amp; Innovation for a Better World.</p>
       </div>
 
       <div class="footer-col">
-        <h5>Quick Links</h5>
+        <h5 data-i18n="footer_quicklinks">Quick Links</h5>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">Technology</a></li>
-          <li><a href="#">Quality</a></li>
+          <!-- [แก้ไข] ใช้ key เดียวกับ navbar เลย ไม่ต้องเขียนคำแปลซ้ำ -->
+          <li><a href="#" data-i18n="nav_home">Home</a></li>
+          <li><a href="#" data-i18n="nav_about">About Us</a></li>
+          <li><a href="#" data-i18n="nav_products">Products</a></li>
+          <li><a href="#" data-i18n="nav_tech">Technology</a></li>
+          <li><a href="#" data-i18n="nav_quality">Quality</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h5>Our Products</h5>
+        <h5 data-i18n="footer_ourproducts">Our Products</h5>
         <ul>
-          <li><a href="#">Kratom Powder</a></li>
-          <li><a href="#">Kratom Capsules</a></li>
-          <li><a href="#">Kratom Shot</a></li>
-          <li><a href="#">Kratom Gummies</a></li>
-          <li><a href="#">Kratom Liquid Extract</a></li>
+          <!-- [แก้ไข] ใช้ key เดียวกับ products section -->
+          <li><a href="#" data-i18n="prod1_name">Kratom Powder</a></li>
+          <li><a href="#" data-i18n="prod2_name">Kratom Capsules</a></li>
+          <li><a href="#" data-i18n="prod3_name">Kratom Shot</a></li>
+          <li><a href="#" data-i18n="prod4_name">Kratom Gummies</a></li>
+          <li><a href="#" data-i18n="prod5_name">Kratom Liquid Extract</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h5>OEM / Private Label</h5>
+        <h5 data-i18n="footer_oem">OEM / Private Label</h5>
         <ul>
-          <li><a href="#">Custom Formulation</a></li>
-          <li><a href="#">Product Development</a></li>
-          <li><a href="#">Packaging Design</a></li>
-          <li><a href="#">Low MOQ</a></li>
+          <li><a href="#" data-i18n="footer_oem1">Custom Formulation</a></li>
+          <li><a href="#" data-i18n="footer_oem2">Product Development</a></li>
+          <li><a href="#" data-i18n="footer_oem3">Packaging Design</a></li>
+          <li><a href="#" data-i18n="footer_oem4">Low MOQ</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h5>Contact Us</h5>
+        <h5 data-i18n="footer_contact">Contact Us</h5>
         <div class="footer-contact-item">
           <span class="icon">📞</span>
           <span>+66 (0) 819 895 Tan Beeh Kwef</span>
@@ -282,8 +312,6 @@
     </div>
   </footer>
 
-  
   <script src="script.js"></script>
 </body>
-
 </html>

@@ -106,7 +106,7 @@ nav.scrolled {
 }
 
 .nav-links a {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', 'Noto Sans Thai', sans-serif;
   font-size: 12px;
   font-weight: 600;
   color: var(--text-dark);
@@ -705,4 +705,97 @@ footer {
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ============================================================
+   [เพิ่มใหม่] LANGUAGE SWITCHER DROPDOWN
+   ทุก style ด้านล่างนี้เป็นของใหม่ทั้งหมด ไม่ได้แตะ style เดิม
+
+   .lang-switcher   = wrapper หลัก ต้อง position:relative เพื่อให้
+                      .lang-dropdown วางตัวได้ถูกต้อง
+   .lang-btn        = ปุ่มที่เห็น (ธง + รหัสภาษา + ลูกศร)
+   .lang-caret      = ลูกศร ▾ หมุนเมื่อ dropdown เปิด
+   .lang-dropdown   = กล่อง dropdown ซ่อนอยู่ก่อน (display:none)
+   .lang-dropdown.open = แสดงออกมาเมื่อ JS ใส่ class "open"
+   .lang-option     = แต่ละตัวเลือกภาษาใน dropdown
+   .lang-option.active = ภาษาที่เลือกอยู่ตอนนี้ (highlight)
+   ============================================================ */
+
+.lang-switcher {
+  position: relative; /* สำคัญมาก: ทำให้ .lang-dropdown วางตำแหน่งได้ถูก */
+}
+
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text-dark);
+  background: var(--gray-light);
+  border: 1px solid var(--gray-mid);
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.lang-btn:hover {
+  background: var(--gray-mid);
+}
+
+/* ลูกศร หมุน 180° เมื่อ dropdown เปิด */
+.lang-caret {
+  font-size: 10px;
+  transition: transform 0.2s;
+}
+
+.lang-dropdown.open ~ * .lang-caret,
+.lang-switcher:has(.lang-dropdown.open) .lang-caret {
+  transform: rotate(180deg);
+}
+
+/* กล่อง dropdown — ซ่อนไว้ก่อน */
+.lang-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px); /* วางไว้ใต้ปุ่ม 6px */
+  right: 0;              /* ชิดขวาตามปุ่ม */
+  background: white;
+  border: 1px solid var(--gray-mid);
+  border-radius: 6px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  min-width: 150px;
+  overflow: hidden;
+  z-index: 999; /* ต้องอยู่บน navbar ที่ z-index:1000 ไม่ได้ แต่อยู่บน content ได้ */
+}
+
+/* เปิด dropdown เมื่อมี class "open" (ใส่โดย script.js) */
+.lang-dropdown.open {
+  display: block;
+}
+
+/* แต่ละตัวเลือกภาษา */
+.lang-option {
+  display: block;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: var(--text-dark);
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.lang-option:hover {
+  background: var(--gray-light);
+}
+
+/* ภาษาที่เลือกอยู่ตอนนี้ → แสดงสีเขียวเพื่อบอกว่ากำลังใช้อยู่ */
+.lang-option.active {
+  color: var(--green-accent);
+  font-weight: 700;
+  background: rgba(74, 140, 63, 0.06);
 }
