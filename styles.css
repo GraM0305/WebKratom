@@ -172,7 +172,7 @@ nav.scrolled {
   position: relative;
   background:
     linear-gradient(120deg, rgba(26,55,26,0.88) 40%, rgba(0,0,0,0.3) 100%),
-    url('https://images.unsplash.com/photo-1585664811087-47f65abbad64?w=1600&q=80') center/cover no-repeat;
+    url('src/Images/InnotechFarmLandscape.svg') center/cover no-repeat;
   display: flex;
   align-items: center;
   padding: 80px;
@@ -322,7 +322,9 @@ nav.scrolled {
 /* ===== CERT BAR ===== */
 .cert-bar {
   background: white;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+  border-radius: 10px;
+  box-shadow: 0 4px 18px 8px rgba(0,0,0,0.10);
+  margin: 0px 25px 0px 25px;  /* == Top, R, Bottom, L ==*/
   padding: 24px 80px;
   display: flex;
   justify-content: center;
@@ -352,6 +354,22 @@ nav.scrolled {
   transition: background 0.3s;
 }
 
+/* ===== CERT ICON ===== */
+/* [แก้ไข] เพิ่ม style ให้ img ภายใน .cert-icon
+   ให้รูปอยู่กลางวงกลมพอดี โดย:
+   - width/height: 65% → ขนาดรูปไม่ใหญ่เกินจนล้นวงกลม
+   - object-fit: contain → รักษาสัดส่วนรูปไว้
+   - display: block + margin: auto → จัดให้อยู่กลาง (fallback)
+*/
+.cert-icon img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  flex-shrink: 0;
+  align-self: center;
+  display: block;
+}
+
 .cert-item:hover .cert-icon {
   background: var(--green-accent);
   color: white;
@@ -374,8 +392,8 @@ nav.scrolled {
 
 /* ===== SECTION COMMON ===== */
 .section-label {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
+  font-family: 'Inter', 'Noto Sans Thai', sans-serif;
+  font-size: 12px;
   font-weight: 700;
   color: var(--green-accent);
   letter-spacing: 3px;
@@ -400,6 +418,7 @@ nav.scrolled {
   margin-top: -8px;
   margin-bottom: 0;
 }
+
 
 /* ===== ABOUT ===== */
 .about {
@@ -469,9 +488,10 @@ nav.scrolled {
   margin-top: 4px;
 }
 
+
 /* ===== PRODUCTS ===== */
 .products {
-  padding: 90px 80px;
+  padding: 60px 80px;
   background: var(--gray-light);
   text-align: center;
 }
@@ -537,7 +557,7 @@ nav.scrolled {
 
 /* ===== WHY CHOOSE US ===== */
 .why {
-  padding: 80px;
+  padding: 40px 55px 55px 55px;
   background: var(--navy);
   text-align: center;
 }
