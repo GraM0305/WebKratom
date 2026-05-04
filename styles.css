@@ -67,9 +67,9 @@ nav.scrolled {
 }
 
 .logo-icon {
-  width: 48px;
-  height: 48px;
-  background: var(--green-mid);
+  width: 54px;
+  height: 54px;
+  background: none;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -78,7 +78,7 @@ nav.scrolled {
   font-weight: 900;
   color: white;
   font-family: 'Montserrat', sans-serif;
-  border: 2px solid var(--green-accent);
+  /* border: 2px solid var(); */
   flex-shrink: 0;
 }
 
@@ -629,20 +629,46 @@ footer {
   margin-bottom: 40px;
 }
 
-.footer-brand .brand-top {
+/* ===== FOOTER LOGO ===== */
+.footer-logo {
+  display: flex;          /* จัดโลโก้ + ข้อความให้อยู่แถวเดียวกัน */
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;    /* เว้นระยะก่อนถึง paragraph */
+}
+
+.footer-logo-icon {
+  width: 50px;
+  height: 50px;     
+
+  background: white;         
+  border-radius: 50%;          /* ทำเป็นวงกลมเหมือน */
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: contain;
+  flex-shrink: 0;              /* ไม่ให้หดเมื่อหน้าจอแคบ */
+  padding: 0;                /* เอา padding ออกให้รูปชิดขอบ */
+}
+
+
+/* ปรับ brand-top/brand-sub ใน footer ให้สีถูกต้อง
+  (ในที่อื่น brand-sub อาจเป็น navy แต่ใน footer ต้องเป็นขาว) */
+.footer-logo-text .brand-top {
   font-family: 'Montserrat', sans-serif;
   font-size: 24px;
   font-weight: 900;
   color: var(--red-brand);
+  line-height: 1;
 }
 
-.footer-brand .brand-sub {
+.footer-logo-text .brand-sub {
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
   font-weight: 700;
   color: white;
   letter-spacing: 0.5px;
-  margin-bottom: 12px;
 }
 
 .footer-brand p {
@@ -650,6 +676,8 @@ footer {
   color: rgba(255,255,255,0.6);
   line-height: 1.7;
 }
+
+/* ===== === ===== */
 
 .footer-col h5 {
   font-family: 'Montserrat', sans-serif;
@@ -726,6 +754,8 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+
+
 
 /* ============================================================
    [เพิ่มใหม่] LANGUAGE SWITCHER DROPDOWN
@@ -819,3 +849,21 @@ footer {
   font-weight: 700;
   background: rgba(74, 140, 63, 0.06);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
