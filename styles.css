@@ -172,7 +172,7 @@ nav.scrolled {
   position: relative;
   background:
     linear-gradient(120deg, rgba(26,55,26,0.88) 40%, rgba(0,0,0,0.3) 100%),
-    url('src/Images/InnotechFarmLandscape.svg') center/cover no-repeat;
+    url('src/Images/หน้าอาคาร01.png') center/cover no-repeat;
   display: flex;
   align-items: center;
   padding: 80px;
