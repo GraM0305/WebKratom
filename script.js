@@ -401,4 +401,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedLang = localStorage.getItem('saimLang') || 'en';
   switchLanguage(savedLang);
 
+
+  // Hamburger Menu Toggle
+  // ✅ เปลี่ยนชื่อให้ไม่ซ้ำ
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const navMenu = document.querySelector('.nav-links'); // ← เปลี่ยนจาก navLinks
+
+hamburgerBtn.addEventListener('click', () => {
+  navMenu.classList.toggle('open'); // ← เปลี่ยนตามด้วย
+});
+
+
+
 });
