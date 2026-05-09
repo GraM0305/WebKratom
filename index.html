@@ -23,7 +23,7 @@
 
     <ul class="nav-links">
       <!-- [แก้ไข] ใส่ data-i18n="..." ทุก link เพื่อให้ script.js รู้ว่า element ไหนต้องแปล -->
-      <li><a href="#" class="active" data-i18n="nav_home">Home</a></li>
+      <li><a href="#home" class="active" data-i18n="nav_home">Home</a></li>
       <li><a href="#about" data-i18n="nav_about">About Us</a></li>
       <li><a href="#products" data-i18n="nav_products">Products</a></li>
       <li><a href="#" data-i18n="nav_tech">Technology</a></li>
@@ -68,7 +68,7 @@
 
 
   <!-- ===== HERO ===== -->
-  <section class="hero">
+  <section class="hero" id="home">
     <div class="hero-content">
       <!-- [แก้ไข] ใส่ data-i18n ทุก text ใน hero section -->
       <div class="hero-welcome" data-i18n="hero_welcome">Welcome to</div>
@@ -148,20 +148,20 @@
       <p class="about-text" data-i18n="about_desc">SAIM INNOTECH FARMS is a leading kratom producer and exporter from Thailand. We are committed to innovation, quality, and sustainability in every step of our process — from organic farming and advanced extraction to finished products.</p>
       <div class="stats-grid">
         <div class="stat-item">
-          <div class="stat-num">100<span>+</span></div>
+          <div class="stat-num" data-target="100">0<span>+</span></div>
           <!-- [แก้ไข] label ของ stat ก็ต้องแปลด้วย -->
           <div class="stat-label" data-i18n="stat_farms">Hectares of Organic Farms</div>
         </div>
         <div class="stat-item">
-          <div class="stat-num">10<span>+</span></div>
+          <div class="stat-num" data-target="10">0<span>+</span></div>
           <div class="stat-label" data-i18n="stat_exp">Years of Experience</div>
         </div>
         <div class="stat-item">
-          <div class="stat-num">50<span>+</span></div>
+          <div class="stat-num" data-target="50">0<span>+</span></div>
           <div class="stat-label" data-i18n="stat_products">Products Worldwide</div>
         </div>
         <div class="stat-item">
-          <div class="stat-num">20<span>+</span></div>
+          <div class="stat-num" data-target="20">0<span>+</span></div>
           <div class="stat-label" data-i18n="stat_countries">Countries Exported</div>
         </div>
       </div>
@@ -211,7 +211,7 @@
       </div>
       <div class="product-card">
         <div class="product-img">
-          <img src="src/Images/ImgKratomGummies.png">
+          <img src="src/Images/ImgKratomGummies.png" alt="Kratom Gummies">
         </div>
         <div class="product-info">
           <div class="product-name" data-i18n="prod4_name">Kratom Gummies</div>
@@ -290,9 +290,9 @@
         <h5 data-i18n="footer_quicklinks">Quick Links</h5>
         <ul>
           <!-- [แก้ไข] ใช้ key เดียวกับ navbar เลย ไม่ต้องเขียนคำแปลซ้ำ -->
-          <li><a href="#" data-i18n="nav_home">Home</a></li>
-          <li><a href="#" data-i18n="nav_about">About Us</a></li>
-          <li><a href="#" data-i18n="nav_products">Products</a></li>
+          <li><a href="#home" data-i18n="nav_home">Home</a></li>
+          <li><a href="#about" data-i18n="nav_about">About Us</a></li>
+          <li><a href="#products" data-i18n="nav_products">Products</a></li>
           <li><a href="#" data-i18n="nav_tech">Technology</a></li>
           <li><a href="#" data-i18n="nav_quality">Quality</a></li>
         </ul>
