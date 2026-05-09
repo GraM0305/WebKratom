@@ -2,15 +2,14 @@
    SAIM INNOTECH FARMS — script.js
    ============================================ */
 
-/* ============================================================
-   [เพิ่มใหม่] ส่วนที่ 1: TRANSLATIONS — คลังคำแปลทุกภาษา
-   วิธีเพิ่มภาษาใหม่: ก็แค่เพิ่ม key ใหม่ข้างล่างนี้ เช่น zh: { ... }
-   วิธีแก้คำแปล: หาชื่อ key ที่ตรงกับ data-i18n ใน HTML แล้วแก้ตรงนี้เลย
-   ============================================================ */
+/* ------------------------------------------------------------------
+   TRANSLATIONS
+   To add a new language: add a new key below (e.g. zh: { ... })
+   To edit a translation: find the matching data-i18n key and update it
+   ------------------------------------------------------------------ */
 const translations = {
-
   en: {
-    /* --- Navbar --- */
+    // Navbar
     nav_home:       'Home',
     nav_about:      'About Us',
     nav_products:   'Products',
@@ -21,14 +20,14 @@ const translations = {
     nav_contact:    'Contact Us',
     nav_quote:      '✉ Get A Quote',
 
-    /* --- Hero --- */
+    // Hero
     hero_welcome:      'Welcome to',
     hero_tagline:      'Advanced Kratom Extraction & Innovation',
     hero_desc:         'We combine modern technology with sustainable farming to deliver premium quality kratom products for a better world.',
     hero_btn_products: 'Our Products →',
     hero_btn_about:    'About Us →',
 
-    /* --- Cert Bar --- */
+    // Cert Bar
     cert_gmp_title:     'GMP Certified',
     cert_gmp_desc:      'Good Manufacturing Practice',
     cert_halal_title:   'Halal Certified',
@@ -40,7 +39,7 @@ const translations = {
     cert_lab_title:     'Lab Tested & Safe',
     cert_lab_desc:      'Quality & Safety Guarantee',
 
-    /* --- About --- */
+    // About
     about_label:   'About Us',
     about_title:   'Innovation From Farm To Future',
     about_desc:    'SAIM INNOTECH FARMS is a leading kratom producer and exporter from Thailand. We are committed to innovation, quality, and sustainability in every step of our process — from organic farming and advanced extraction to finished products.',
@@ -50,7 +49,7 @@ const translations = {
     stat_countries:'Countries Exported',
     about_btn:     'Learn More About Us →',
 
-    /* --- Products --- */
+    // Products
     products_label:    'Our Products',
     products_title:    'Premium Kratom Products',
     products_subtitle: 'High quality kratom products for every lifestyle and business need',
@@ -66,7 +65,7 @@ const translations = {
     prod5_desc: 'High potency liquid kratom extract',
     prod_btn:   'View More →',
 
-    /* --- Why Choose Us --- */
+    // Why Choose Us
     why_label:   'Why Choose Us',
     why1_title:  'Premium Quality',
     why1_desc:   'We use high quality materials and strict quality control',
@@ -79,7 +78,7 @@ const translations = {
     why5_title:  'Global Support',
     why5_desc:   'Professional support for your business',
 
-    /* --- Footer --- */
+    // Footer
     footer_brand_desc:  'Advanced Kratom Extraction & Innovation for a Better World.',
     footer_quicklinks:  'Quick Links',
     footer_ourproducts: 'Our Products',
@@ -92,7 +91,7 @@ const translations = {
   },
 
   th: {
-    /* --- Navbar --- */
+    // Navbar
     nav_home:       'หน้าหลัก',
     nav_about:      'เกี่ยวกับเรา',
     nav_products:   'ผลิตภัณฑ์',
@@ -103,14 +102,14 @@ const translations = {
     nav_contact:    'ติดต่อเรา',
     nav_quote:      '✉ ขอใบเสนอราคา',
 
-    /* --- Hero --- */
+    // Hero
     hero_welcome:      'ยินดีต้อนรับสู่',
     hero_tagline:      'การสกัดและนวัตกรรมกระท่อมขั้นสูง',
     hero_desc:         'เราผสานเทคโนโลยีสมัยใหม่เข้ากับการเกษตรแบบยั่งยืน เพื่อส่งมอบผลิตภัณฑ์กระท่อมคุณภาพพรีเมียมสู่โลกที่ดีกว่า',
     hero_btn_products: 'ผลิตภัณฑ์ของเรา →',
     hero_btn_about:    'เกี่ยวกับเรา →',
 
-    /* --- Cert Bar --- */
+    // Cert Bar
     cert_gmp_title:     'ได้รับมาตรฐาน GMP',
     cert_gmp_desc:      'หลักปฏิบัติการผลิตที่ดี',
     cert_halal_title:   'ได้รับการรับรองฮาลาล',
@@ -122,7 +121,7 @@ const translations = {
     cert_lab_title:     'ผ่านการทดสอบในแล็บ',
     cert_lab_desc:      'รับประกันคุณภาพและความปลอดภัย',
 
-    /* --- About --- */
+    // About
     about_label:   'เกี่ยวกับเรา',
     about_title:   'นวัตกรรมจากฟาร์มสู่อนาคต',
     about_desc:    'SAIM INNOTECH FARMS คือผู้ผลิตและส่งออกกระท่อมชั้นนำจากประเทศไทย เรามุ่งมั่นในด้านนวัตกรรม คุณภาพ และความยั่งยืนในทุกขั้นตอน ตั้งแต่การเกษตรอินทรีย์ การสกัดขั้นสูง จนถึงผลิตภัณฑ์สำเร็จรูป',
@@ -132,7 +131,7 @@ const translations = {
     stat_countries:'ประเทศที่ส่งออก',
     about_btn:     'เรียนรู้เพิ่มเติมเกี่ยวกับเรา →',
 
-    /* --- Products --- */
+    // Products
     products_label:    'ผลิตภัณฑ์ของเรา',
     products_title:    'ผลิตภัณฑ์กระท่อมพรีเมียม',
     products_subtitle: 'ผลิตภัณฑ์กระท่อมคุณภาพสูงสำหรับทุกไลฟ์สไตล์และธุรกิจ',
@@ -148,7 +147,7 @@ const translations = {
     prod5_desc: 'สารสกัดกระท่อมเหลวความเข้มข้นสูง',
     prod_btn:   'ดูเพิ่มเติม →',
 
-    /* --- Why Choose Us --- */
+    // Why Choose Us
     why_label:   'ทำไมต้องเลือกเรา',
     why1_title:  'คุณภาพพรีเมียม',
     why1_desc:   'เราใช้วัตถุดิบคุณภาพสูงและควบคุมคุณภาพอย่างเข้มงวด',
@@ -161,7 +160,7 @@ const translations = {
     why5_title:  'รองรับทั่วโลก',
     why5_desc:   'บริการสนับสนุนระดับมืออาชีพสำหรับธุรกิจของคุณ',
 
-    /* --- Footer --- */
+    // Footer
     footer_brand_desc:  'การสกัดและนวัตกรรมกระท่อมขั้นสูงเพื่อโลกที่ดีกว่า',
     footer_quicklinks:  'ลิงก์ด่วน',
     footer_ourproducts: 'ผลิตภัณฑ์ของเรา',
@@ -171,246 +170,231 @@ const translations = {
     footer_oem3:        'ออกแบบบรรจุภัณฑ์',
     footer_oem4:        'MOQ ต่ำ',
     footer_contact:     'ติดต่อเรา',
-  }
-
+  },
 };
 
-/* ============================================================
-   [เพิ่มใหม่] ส่วนที่ 2: SWITCH LANGUAGE FUNCTION
-   ฟังก์ชันหลักที่เปลี่ยนข้อความทั้งหน้า
-
-   วิธีทำงาน:
-   1. รับ lang ('en' หรือ 'th')
-   2. วนหา element ทุกตัวที่มี attribute data-i18n
-   3. เอา key ใน data-i18n ไปหาคำแปลใน translations object ด้านบน
-   4. ใส่คำแปลเป็น textContent ของ element นั้น
-   5. จำภาษาที่เลือกไว้ใน localStorage (กด refresh แล้วภาษาไม่หาย)
-   ============================================================ */
+/* ------------------------------------------------------------------
+   switchLanguage(lang)
+   Applies translations to all [data-i18n] elements, updates the
+   language toggle UI, sets <html lang>, and persists the choice
+   to localStorage so it survives a page refresh.
+   ------------------------------------------------------------------ */
 function switchLanguage(lang) {
   const t = translations[lang];
-  if (!t) return; // ถ้าไม่มีภาษานั้นในคลัง ก็หยุดทำงาน
+  if (!t) return;
 
-  /* วนทุก element ที่มี data-i18n แล้วเปลี่ยนข้อความ */
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if (t[key] !== undefined) {
-      el.textContent = t[key];
-    }
+    if (t[key] !== undefined) el.textContent = t[key];
   });
 
-  /* อัปเดตปุ่มภาษาให้แสดง flag และรหัสของภาษาที่เลือก */
   const flagMap = { en: '🇬🇧', th: '🇹🇭' };
-  const codeMap = { en: 'EN',   th: 'TH'   };
-  document.getElementById('currentFlag').textContent    = flagMap[lang];
+  const codeMap = { en: 'EN',   th: 'TH'  };
+  document.getElementById('currentFlag').textContent     = flagMap[lang];
   document.getElementById('currentLangCode').textContent = codeMap[lang];
 
-  /* อัปเดต class "active" บน option ใน dropdown
-     เพื่อ highlight ภาษาที่เลือกอยู่ด้วยสีที่ต่างออกไป */
   document.querySelectorAll('.lang-option').forEach(opt => {
     opt.classList.toggle('active', opt.getAttribute('data-lang') === lang);
   });
 
-  /* เปลี่ยน lang attribute บน <html> → ช่วยให้ browser และ screen reader รู้ภาษา */
   document.documentElement.setAttribute('lang', lang);
-
-  /* บันทึกภาษาที่เลือกไว้ใน localStorage กด refresh แล้วภาษาไม่หาย */
   localStorage.setItem('saimLang', lang);
 }
 
 
 /* ============================================================
-   Main: DOMContentLoaded
+   DOMContentLoaded — initialise all interactive behaviour
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ===== 1. NAVBAR — Scroll shadow ===== */
+  // ── 1. Navbar shadow on scroll ──────────────────────────────
   const navbar = document.getElementById('navbar');
-
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
   });
 
 
-  /* ===== 2. NAVBAR — Active link on scroll ===== */
+  // ── 2. Highlight active nav link based on scroll position ───
   const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
+  const navLinks  = document.querySelectorAll('.nav-links a');
 
-  const activateLink = () => {
+  window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100;
-      if (window.scrollY >= sectionTop) {
+      if (window.scrollY >= section.offsetTop - 100) {
         current = section.getAttribute('id');
       }
     });
-
     navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('active');
-      }
+      link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
     });
-  };
-
-  window.addEventListener('scroll', activateLink);
+  });
 
 
-  /* ===== 3. SCROLL REVEAL ===== */
-  const revealElements = document.querySelectorAll(
+  // ── 3. Scroll-reveal animation (IntersectionObserver) ───────
+  const revealTargets = document.querySelectorAll(
     '.cert-item, .product-card, .why-item, .stat-item, .about-img, .about-content'
   );
 
-  revealElements.forEach(el => el.classList.add('reveal'));
+  revealTargets.forEach(el => el.classList.add('reveal'));
 
-  const revealObserver = new IntersectionObserver((entries) => {
+  new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      obs.unobserve(entry.target);
     });
-  }, {
-    threshold: 0.12,
-  });
+  }, { threshold: 0.12 }).observe
+    ? (() => {
+        const obs = new IntersectionObserver((entries, o) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('visible');
+            o.unobserve(entry.target);
+          });
+        }, { threshold: 0.12 });
+        revealTargets.forEach(el => obs.observe(el));
+      })()
+    : revealTargets.forEach(el => el.classList.add('visible')); // fallback
 
-  revealElements.forEach(el => revealObserver.observe(el));
 
-
-  /* ===== 4. STATS — Animated counter ===== */
-  const statNums = document.querySelectorAll('.stat-num');
-
+  // ── 4. Animated number counter ──────────────────────────────
+  // Reads the target value from the element's current text content,
+  // then counts up over ~1500 ms using a fixed 60 fps interval.
   const animateCounter = (el) => {
     const target = parseInt(el.textContent.replace(/\D/g, ''), 10);
-    const suffix = el.querySelector('span') ? el.querySelector('span').textContent : '';
-    let start = 0;
-    const duration = 1500;
-    const step = Math.ceil(target / (duration / 16));
+    const suffix = el.querySelector('span')?.textContent ?? '';
+    const step   = Math.ceil(target / (1500 / 16));
+    let   count  = 0;
 
     const timer = setInterval(() => {
-      start += step;
-      if (start >= target) {
-        start = target;
+      count += step;
+      if (count >= target) {
+        count = target;
         clearInterval(timer);
       }
-      el.innerHTML = `${start}<span>${suffix}</span>`;
+      el.innerHTML = `${count}<span>${suffix}</span>`;
     }, 16);
   };
 
-  const counterObserver = new IntersectionObserver((entries) => {
+  new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateCounter(entry.target);
-        counterObserver.unobserve(entry.target);
-      }
+      if (!entry.isIntersecting) return;
+      animateCounter(entry.target);
+      obs.unobserve(entry.target);
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.5 })
+    .observe
+    ? (() => {
+        const obs = new IntersectionObserver((entries, o) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            animateCounter(entry.target);
+            o.unobserve(entry.target);
+          });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.stat-num').forEach(el => obs.observe(el));
+      })()
+    : document.querySelectorAll('.stat-num').forEach(animateCounter); // fallback
 
-  statNums.forEach(el => counterObserver.observe(el));
 
-
-  /* ===== 5. SMOOTH SCROLL for anchor links ===== */
+  // ── 5. Smooth scroll for in-page anchor links ───────────────
+  // Offsets by 68 px to account for the fixed navbar height.
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
+    anchor.addEventListener('click', e => {
       const target = document.querySelector(anchor.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        window.scrollTo({
-          top: target.offsetTop - 68,
-          behavior: 'smooth',
-        });
-      }
+      if (!target) return;
+      e.preventDefault();
+      window.scrollTo({ top: target.offsetTop - 68, behavior: 'smooth' });
     });
   });
 
 
-  /* ===== 6. PRODUCT CARD — Click ripple effect ===== */
+  // ── 6. Product card ripple effect on click ──────────────────
+  // Injects a circular ripple element at the cursor position,
+  // then removes it after the animation completes.
+  document.head.insertAdjacentHTML('beforeend', `
+    <style>
+      @keyframes ripple {
+        from { transform: scale(0); opacity: 1; }
+        to   { transform: scale(2); opacity: 0; }
+      }
+    </style>
+  `);
+
   document.querySelectorAll('.product-card').forEach(card => {
     card.addEventListener('click', function (e) {
+      const rect   = this.getBoundingClientRect();
+      const size   = Math.max(rect.width, rect.height);
       const ripple = document.createElement('span');
-      const rect = this.getBoundingClientRect();
-      const size = Math.max(rect.width, rect.height);
 
-      ripple.style.cssText = `
-        position: absolute;
-        border-radius: 50%;
-        background: rgba(74,140,63,0.25);
-        width: ${size}px;
-        height: ${size}px;
-        left: ${e.clientX - rect.left - size / 2}px;
-        top: ${e.clientY - rect.top - size / 2}px;
-        pointer-events: none;
-        animation: ripple 0.6s ease-out forwards;
-      `;
+      Object.assign(ripple.style, {
+        position:     'absolute',
+        borderRadius: '50%',
+        background:   'rgba(74,140,63,0.25)',
+        width:        `${size}px`,
+        height:       `${size}px`,
+        left:         `${e.clientX - rect.left - size / 2}px`,
+        top:          `${e.clientY - rect.top  - size / 2}px`,
+        pointerEvents:'none',
+        animation:    'ripple 0.6s ease-out forwards',
+      });
 
+      // Ensure card is a positioned container for the absolute ripple
       this.style.position = 'relative';
       this.style.overflow = 'hidden';
       this.appendChild(ripple);
-
       setTimeout(() => ripple.remove(), 600);
     });
   });
 
-  /* Inject ripple keyframes */
-  const style = document.createElement('style');
-  style.textContent = `
-    @keyframes ripple {
-      from { transform: scale(0); opacity: 1; }
-      to   { transform: scale(2); opacity: 0; }
-    }
-  `;
-  document.head.appendChild(style);
 
-
-  /* ===== 7. [เพิ่มใหม่] LANGUAGE DROPDOWN — เปิด/ปิด =====
-     เมื่อกดปุ่ม #langToggle → toggle class "open" บน #langDropdown
-     class "open" ถูก style ใน styles.css ให้แสดง dropdown ออกมา */
+  // ── 7. Language dropdown — open / close ─────────────────────
   const langToggle   = document.getElementById('langToggle');
   const langDropdown = document.getElementById('langDropdown');
 
-  /* กดปุ่มธง → เปิด/ปิด dropdown */
-  langToggle.addEventListener('click', (e) => {
-    e.stopPropagation(); // ป้องกัน event ลามไปถึง document แล้วปิดทันที
+  langToggle.addEventListener('click', e => {
+    e.stopPropagation(); // prevent the document listener below from immediately closing it
     langDropdown.classList.toggle('open');
   });
 
-  /* คลิกที่อื่นนอก dropdown → ปิด dropdown อัตโนมัติ */
-  document.addEventListener('click', (e) => {
+  // Close dropdown when clicking anywhere outside the switcher
+  document.addEventListener('click', e => {
     if (!e.target.closest('#langSwitcher')) {
       langDropdown.classList.remove('open');
     }
   });
 
-  /* ===== 8. [เพิ่มใหม่] LANGUAGE OPTION — เมื่อเลือกภาษา =====
-     เมื่อกด option ใน dropdown → เรียก switchLanguage() แล้วปิด dropdown */
+  // Select a language and close the dropdown
   document.querySelectorAll('.lang-option').forEach(option => {
-    option.addEventListener('click', (e) => {
+    option.addEventListener('click', e => {
       e.preventDefault();
-      const lang = option.getAttribute('data-lang'); // อ่านค่า data-lang="en" หรือ "th"
-      switchLanguage(lang);
-      langDropdown.classList.remove('open'); // ปิด dropdown หลังเลือก
+      switchLanguage(option.getAttribute('data-lang'));
+      langDropdown.classList.remove('open');
     });
   });
 
-  /* ===== 9. [เพิ่มใหม่] โหลดภาษาที่เคยเลือกไว้ =====
-     ถ้าเคยเลือกภาษาไว้ใน localStorage → โหลดภาษานั้นเลย
-     ถ้ายังไม่เคยเลือก → ใช้ภาษาอังกฤษเป็นค่าเริ่มต้น */
-  const savedLang = localStorage.getItem('saimLang') || 'en';
-  switchLanguage(savedLang);
+  // Restore last-used language (defaults to English)
+  switchLanguage(localStorage.getItem('saimLang') || 'en');
 
 
-  // Hamburger Menu Toggle
-  // ✅ เปลี่ยนชื่อให้ไม่ซ้ำ
-const hamburgerBtn = document.getElementById('hamburgerBtn');
-const navMenu = document.querySelector('.nav-links'); // ← เปลี่ยนจาก navLinks
+  // ── 8. Mobile hamburger menu ─────────────────────────────────
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const navMenu      = document.querySelector('.nav-links');
 
-hamburgerBtn.addEventListener('click', () => {
-  navMenu.classList.toggle('open'); // ← เปลี่ยนตามด้วย
-});
+  if (hamburgerBtn && navMenu) {
+    hamburgerBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+      hamburgerBtn.classList.toggle('active');
+    });
 
-
+    // Auto-close menu when a nav link is tapped
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        hamburgerBtn.classList.remove('active');
+      });
+    });
+  }
 
 });

@@ -2,24 +2,29 @@
    SAIM INNOTECH FARMS — style.css
    ============================================ */
 
-/* ===== CSS VARIABLES ===== */
+/* ===========================================
+   1. CSS VARIABLES
+   =========================================== */
 :root {
-  --green-dark:    #1a3a1a;
-  --green-mid:     #2d5a27;
-  --green-accent:  #4a8c3f;
-  --green-light:   #6db85c;
-  --red-brand:     #c0392b;
-  --navy:          #1a2744;
-  --navy-light:    #243259;
-  --white:         #ffffff;
-  --gray-light:    #f5f5f5;
-  --gray-mid:      #e8e8e8;
-  --text-dark:     #1a1a1a;
-  --text-mid:      #444444;
-  --text-light:    #777777;
+  --green-dark:   #1a3a1a;
+  --green-mid:    #2d5a27;
+  --green-accent: #4a8c3f;
+  --green-light:  #6db85c;
+  --red-brand:    #c0392b;
+  --navy:         #1a2744;
+  --navy-light:   #243259;
+  --white:        #ffffff;
+  --gray-light:   #f5f5f5;
+  --gray-mid:     #e8e8e8;
+  --text-dark:    #1a1a1a;
+  --text-mid:     #444444;
+  --text-light:   #777777;
 }
 
-/* ===== RESET ===== */
+
+/* ===========================================
+   2. RESET
+   =========================================== */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -37,22 +42,23 @@ img {
   max-width: 100%;
 }
 
-a {
-  text-decoration: none;
-}
+a { text-decoration: none; }
 
-/* ===== NAVBAR ===== */
+
+/* ===========================================
+   3. NAVBAR
+   =========================================== */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  background: var(--white);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
-  padding: 0 40px;
   height: 68px;
+  padding: 0 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: var(--white);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
   transition: box-shadow 0.3s;
 }
 
@@ -60,27 +66,27 @@ nav.scrolled {
   box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
+/* Logo */
 .nav-logo {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-
 .logo-icon {
   width: 54px;
   height: 54px;
-  background: none;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+  background: none;
+  /* fallback: ถ้าเปลี่ยนจากรูปเป็นข้อความ */
+  font-family: 'Montserrat', sans-serif;
   font-size: 10px;
   font-weight: 900;
   color: white;
-  font-family: 'Montserrat', sans-serif;
-  /* border: 2px solid var(); */
-  flex-shrink: 0;
 }
 
 .logo-text .brand-top {
@@ -100,6 +106,7 @@ nav.scrolled {
   letter-spacing: 0.5px;
 }
 
+/* Nav links */
 .nav-links {
   display: flex;
   list-style: none;
@@ -124,12 +131,14 @@ nav.scrolled {
   border-bottom-color: var(--green-accent);
 }
 
+/* Nav right */
 .nav-right {
   display: flex;
   align-items: center;
   gap: 16px;
 }
 
+/* Hamburger */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -149,24 +158,11 @@ nav.scrolled {
   transition: transform 0.3s, opacity 0.3s;
 }
 
-
-.lang-btn {
+/* Quote button */
+.quote-btn {
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  font-weight: 600;
-  font-family: 'Montserrat', sans-serif;
-  color: var(--text-dark);
-  background: var(--gray-light);
-  border: 1px solid var(--gray-mid);
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  user-select: none;
-}
-
-.quote-btn {
+  gap: 8px;
   background: var(--navy);
   color: white;
   padding: 10px 20px;
@@ -176,28 +172,192 @@ nav.scrolled {
   font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  gap: 8px;
   transition: background 0.2s;
 }
 
-.quote-btn:hover {
-  background: var(--green-mid);
+.quote-btn:hover { background: var(--green-mid); }
+
+
+/* ===========================================
+   4. LANGUAGE SWITCHER
+   =========================================== */
+.lang-switcher { position: relative; }
+
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid var(--gray-mid);
+  background: var(--gray-light);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-dark);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
 }
 
-/* ===== HERO ===== */
+.lang-btn:hover { background: var(--gray-mid); }
+
+.lang-caret {
+  font-size: 10px;
+  transition: transform 0.2s;
+}
+
+.lang-switcher:has(.lang-dropdown.open) .lang-caret {
+  transform: rotate(180deg);
+}
+
+.lang-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 999;
+  min-width: 150px;
+  background: white;
+  border: 1px solid var(--gray-mid);
+  border-radius: 6px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  overflow: hidden;
+}
+
+.lang-dropdown.open { display: block; }
+
+.lang-option {
+  display: block;
+  padding: 10px 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-dark);
+  transition: background 0.15s;
+}
+
+.lang-option:hover { background: var(--gray-light); }
+
+.lang-option.active {
+  color: var(--green-accent);
+  font-weight: 700;
+  background: rgba(74,140,63,0.06);
+}
+
+
+/* ===========================================
+   5. BUTTONS
+   =========================================== */
+.btn-primary,
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--navy);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btn-primary:hover,
+.btn-dark:hover {
+  background: var(--green-mid);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 4px;
+  border: 2px solid rgba(255,255,255,0.7);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.btn-outline:hover {
+  border-color: white;
+  background: rgba(255,255,255,0.15);
+}
+
+.btn-view {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--navy);
+  color: white;
+  padding: 9px 18px;
+  border-radius: 3px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: background 0.2s;
+}
+
+.btn-view:hover { background: var(--green-mid); }
+
+
+/* ===========================================
+   6. SECTION COMMON
+   =========================================== */
+.section-label {
+  font-family: 'Inter', 'Noto Sans Thai', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--green-accent);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1.15;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.section-subtitle {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-top: -8px;
+}
+
+
+/* ===========================================
+   7. HERO
+   =========================================== */
 .hero {
   margin-top: 68px;
   min-height: 600px;
   position: relative;
+  padding: 80px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
   background:
     linear-gradient(120deg, rgba(26,55,26,0.88) 40%, rgba(0,0,0,0.3) 100%),
     url('src/Images/หน้าอาคาร01.png') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  padding: 80px;
-  overflow: hidden;
 }
 
 .hero-content {
@@ -227,9 +387,9 @@ nav.scrolled {
 }
 
 .hero h1 .brand-line2 {
+  display: block;
   color: white;
   font-size: 48px;
-  display: block;
   letter-spacing: 3px;
 }
 
@@ -255,104 +415,22 @@ nav.scrolled {
   flex-wrap: wrap;
 }
 
-/* ===== BUTTONS ===== */
-.btn-primary {
-  background: var(--navy);
-  color: white;
-  padding: 14px 28px;
-  border-radius: 4px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  transition: background 0.2s, transform 0.2s;
-}
 
-.btn-primary:hover {
-  background: var(--green-mid);
-  transform: translateY(-2px);
-}
-
-.btn-outline {
-  background: transparent;
-  color: white;
-  padding: 14px 28px;
-  border-radius: 4px;
-  border: 2px solid rgba(255,255,255,0.7);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  transition: border-color 0.2s, background 0.2s;
-}
-
-.btn-outline:hover {
-  border-color: white;
-  background: rgba(255,255,255,0.15);
-}
-
-.btn-dark {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--navy);
-  color: white;
-  padding: 14px 28px;
-  border-radius: 4px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: background 0.2s, transform 0.2s;
-}
-
-.btn-dark:hover {
-  background: var(--green-mid);
-  transform: translateY(-2px);
-}
-
-.btn-view {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--navy);
-  color: white;
-  padding: 9px 18px;
-  border-radius: 3px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: background 0.2s;
-}
-
-.btn-view:hover {
-  background: var(--green-mid);
-}
-
-/* ===== CERT BAR ===== */
+/* ===========================================
+   8. CERT BAR
+   =========================================== */
 .cert-bar {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 18px 8px rgba(0,0,0,0.10);
-  margin: 0px 25px 0px 25px;  /* == Top, R, Bottom, L ==*/
+  position: relative;
+  z-index: 5;
+  margin: 0 25px;
   padding: 24px 80px;
   display: flex;
   justify-content: center;
   gap: 60px;
   flex-wrap: wrap;
-  position: relative;
-  z-index: 5;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 18px 8px rgba(0,0,0,0.10);
 }
 
 .cert-item {
@@ -375,19 +453,10 @@ nav.scrolled {
   transition: background 0.3s;
 }
 
-/* ===== CERT ICON ===== */
-/* [แก้ไข] เพิ่ม style ให้ img ภายใน .cert-icon
-   ให้รูปอยู่กลางวงกลมพอดี โดย:
-   - width/height: 65% → ขนาดรูปไม่ใหญ่เกินจนล้นวงกลม
-   - object-fit: contain → รักษาสัดส่วนรูปไว้
-   - display: block + margin: auto → จัดให้อยู่กลาง (fallback)
-*/
 .cert-icon img {
   width: 38px;
   height: 38px;
   object-fit: contain;
-  flex-shrink: 0;
-  align-self: center;
   display: block;
 }
 
@@ -411,37 +480,10 @@ nav.scrolled {
   margin-top: 2px;
 }
 
-/* ===== SECTION COMMON ===== */
-.section-label {
-  font-family: 'Inter', 'Noto Sans Thai', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--green-accent);
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
 
-.section-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 36px;
-  font-weight: 900;
-  color: var(--navy);
-  line-height: 1.15;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.section-subtitle {
-  font-size: 14px;
-  color: var(--text-light);
-  margin-top: -8px;
-  margin-bottom: 0;
-}
-
-
-/* ===== ABOUT ===== */
+/* ===========================================
+   9. ABOUT
+   =========================================== */
 .about {
   padding: 90px 80px;
   background: white;
@@ -453,9 +495,9 @@ nav.scrolled {
 
 .about-img {
   position: relative;
+  height: 420px;
   border-radius: 8px;
   overflow: hidden;
-  height: 420px;
 }
 
 .about-img img {
@@ -465,9 +507,7 @@ nav.scrolled {
   transition: transform 0.5s ease;
 }
 
-.about-img:hover img {
-  transform: scale(1.04);
-}
+.about-img:hover img { transform: scale(1.04); }
 
 .about-img::after {
   content: '';
@@ -498,9 +538,7 @@ nav.scrolled {
   color: var(--navy);
 }
 
-.stat-num span {
-  color: var(--green-accent);
-}
+.stat-num span { color: var(--green-accent); }
 
 .stat-label {
   font-size: 12px;
@@ -510,7 +548,9 @@ nav.scrolled {
 }
 
 
-/* ===== PRODUCTS ===== */
+/* ===========================================
+   10. PRODUCTS
+   =========================================== */
 .products {
   padding: 60px 80px;
   background: var(--gray-light);
@@ -529,8 +569,8 @@ nav.scrolled {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .product-card:hover {
@@ -551,13 +591,9 @@ nav.scrolled {
   transition: transform 0.4s;
 }
 
-.product-card:hover .product-img img {
-  transform: scale(1.06);
-}
+.product-card:hover .product-img img { transform: scale(1.06); }
 
-.product-info {
-  padding: 20px 16px;
-}
+.product-info { padding: 20px 16px; }
 
 .product-name {
   font-family: 'Montserrat', sans-serif;
@@ -576,20 +612,18 @@ nav.scrolled {
   margin-bottom: 16px;
 }
 
-/* ===== WHY CHOOSE US ===== */
+
+/* ===========================================
+   11. WHY CHOOSE US
+   =========================================== */
 .why {
-  padding: 40px 55px 55px 55px;
+  padding: 40px 55px 55px;
   background: var(--navy);
   text-align: center;
 }
 
-.why .section-label {
-  color: var(--green-light);
-}
-
-.why .section-title {
-  color: white;
-}
+.why .section-label { color: var(--green-light); }
+.why .section-title { color: white; }
 
 .why-grid {
   display: grid;
@@ -598,9 +632,7 @@ nav.scrolled {
   margin-top: 48px;
 }
 
-.why-item {
-  padding: 0 10px;
-}
+.why-item { padding: 0 10px; }
 
 .why-icon {
   width: 56px;
@@ -637,10 +669,13 @@ nav.scrolled {
   line-height: 1.6;
 }
 
-/* ===== FOOTER ===== */
+
+/* ===========================================
+   12. FOOTER
+   =========================================== */
 footer {
-  background: var(--green-dark);
   padding: 60px 80px 30px;
+  background: var(--green-dark);
 }
 
 .footer-grid {
@@ -650,32 +685,25 @@ footer {
   margin-bottom: 40px;
 }
 
-/* ===== FOOTER LOGO ===== */
 .footer-logo {
-  display: flex;          /* จัดโลโก้ + ข้อความให้อยู่แถวเดียวกัน */
+  display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 12px;    /* เว้นระยะก่อนถึง paragraph */
+  margin-bottom: 12px;
 }
 
 .footer-logo-icon {
   width: 50px;
-  height: 50px;     
-
-  background: white;         
-  border-radius: 50%;          /* ทำเป็นวงกลมเหมือน */
-  
+  height: 50px;
+  border-radius: 50%;
+  background: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  object-fit: contain;
-  flex-shrink: 0;              /* ไม่ให้หดเมื่อหน้าจอแคบ */
-  padding: 0;                /* เอา padding ออกให้รูปชิดขอบ */
+  flex-shrink: 0;
+  overflow: hidden;
 }
 
-
-/* ปรับ brand-top/brand-sub ใน footer ให้สีถูกต้อง
-  (ในที่อื่น brand-sub อาจเป็น navy แต่ใน footer ต้องเป็นขาว) */
 .footer-logo-text .brand-top {
   font-family: 'Montserrat', sans-serif;
   font-size: 24px;
@@ -698,9 +726,8 @@ footer {
   line-height: 1.7;
 }
 
-/* ===== === ===== */
-
 .footer-col h5 {
+  display: inline-block;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 800;
@@ -710,16 +737,11 @@ footer {
   margin-bottom: 16px;
   padding-bottom: 8px;
   border-bottom: 2px solid var(--green-accent);
-  display: inline-block;
 }
 
-.footer-col ul {
-  list-style: none;
-}
+.footer-col ul { list-style: none; }
 
-.footer-col ul li {
-  margin-bottom: 8px;
-}
+.footer-col ul li { margin-bottom: 8px; }
 
 .footer-col ul li a {
   font-size: 12px;
@@ -727,9 +749,7 @@ footer {
   transition: color 0.2s;
 }
 
-.footer-col ul li a:hover {
-  color: var(--green-light);
-}
+.footer-col ul li a:hover { color: var(--green-light); }
 
 .footer-contact-item {
   display: flex;
@@ -752,19 +772,15 @@ footer {
   color: rgba(255,255,255,0.4);
 }
 
-/* ===== ANIMATIONS ===== */
+
+/* ===========================================
+   13. ANIMATIONS
+   =========================================== */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== SCROLL REVEAL ===== */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -777,426 +793,231 @@ footer {
 }
 
 
-/* ============================================================
-   [เพิ่มใหม่] LANGUAGE SWITCHER DROPDOWN
-   ทุก style ด้านล่างนี้เป็นของใหม่ทั้งหมด ไม่ได้แตะ style เดิม
-
-   .lang-switcher   = wrapper หลัก ต้อง position:relative เพื่อให้
-                      .lang-dropdown วางตัวได้ถูกต้อง
-   .lang-btn        = ปุ่มที่เห็น (ธง + รหัสภาษา + ลูกศร)
-   .lang-caret      = ลูกศร ▾ หมุนเมื่อ dropdown เปิด
-   .lang-dropdown   = กล่อง dropdown ซ่อนอยู่ก่อน (display:none)
-   .lang-dropdown.open = แสดงออกมาเมื่อ JS ใส่ class "open"
-   .lang-option     = แต่ละตัวเลือกภาษาใน dropdown
-   .lang-option.active = ภาษาที่เลือกอยู่ตอนนี้ (highlight)
-   ============================================================ */
-
-.lang-switcher {
-  position: relative; /* สำคัญมาก: ทำให้ .lang-dropdown วางตำแหน่งได้ถูก */
-}
-
-.lang-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  font-weight: 600;
-  font-family: 'Montserrat', sans-serif;
-  color: var(--text-dark);
-  background: var(--gray-light);
-  border: 1px solid var(--gray-mid);
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  user-select: none;
-  transition: background 0.2s;
-}
-
-.lang-btn:hover {
-  background: var(--gray-mid);
-}
-
-/* ลูกศร หมุน 180° เมื่อ dropdown เปิด */
-.lang-caret {
-  font-size: 10px;
-  transition: transform 0.2s;
-}
-
-.lang-dropdown.open ~ * .lang-caret,
-.lang-switcher:has(.lang-dropdown.open) .lang-caret {
-  transform: rotate(180deg);
-}
-
-/* กล่อง dropdown — ซ่อนไว้ก่อน */
-.lang-dropdown {
-  display: none;
-  position: absolute;
-  top: calc(100% + 6px); /* วางไว้ใต้ปุ่ม 6px */
-  right: 0;              /* ชิดขวาตามปุ่ม */
-  background: white;
-  border: 1px solid var(--gray-mid);
-  border-radius: 6px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-  min-width: 150px;
-  overflow: hidden;
-  z-index: 999; /* ต้องอยู่บน navbar ที่ z-index:1000 ไม่ได้ แต่อยู่บน content ได้ */
-}
-
-/* เปิด dropdown เมื่อมี class "open" (ใส่โดย script.js) */
-.lang-dropdown.open {
-  display: block;
-}
-
-/* แต่ละตัวเลือกภาษา */
-.lang-option {
-  display: block;
-  padding: 10px 16px;
-  font-size: 13px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  color: var(--text-dark);
-  text-decoration: none;
-  transition: background 0.15s;
-}
-
-.lang-option:hover {
-  background: var(--gray-light);
-}
-
-/* ภาษาที่เลือกอยู่ตอนนี้ → แสดงสีเขียวเพื่อบอกว่ากำลังใช้อยู่ */
-.lang-option.active {
-  color: var(--green-accent);
-  font-weight: 700;
-  background: rgba(74, 140, 63, 0.06);
-}
-
-
-
-/* ============================================
-   RESPONSIVE — MOBILE & TABLET
-   ============================================ */
-
-/* ===== TABLET (max-width: 1024px) ===== */
+/* ===========================================
+   14. RESPONSIVE — TABLET (max-width: 1024px)
+   =========================================== */
 @media (max-width: 1024px) {
 
-  /* Navbar */
-  nav {
-    padding: 0 24px;
-  }
-
-  /* Hero */
-  .hero {
-    padding: 60px 40px;
-  }
-
-  .hero h1 {
-    font-size: 48px;
-  }
-
-  .hero h1 .brand-line2 {
-    font-size: 36px;
-  }
-
-  /* Cert Bar */
-  .cert-bar {
-    padding: 24px 40px;
-    gap: 32px;
-  }
-
-  /* About */
-  .about {
-    padding: 60px 40px;
-    gap: 48px;
-  }
-
-  /* Products Grid → 3 คอลัมน์ */
-  .products {
-    padding: 60px 40px;
-  }
-
-  .products-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  /* Why Grid → 3 คอลัมน์ */
-  .why {
-    padding: 40px 40px 55px;
-  }
-
-  .why-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  /* Footer */
-  footer {
-    padding: 60px 40px 30px;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
-}
-
-
-/* ===== MOBILE (max-width: 768px) ===== */
-@media (max-width: 768px) {
-
-  /* --- NAVBAR --- */
-  nav {
-    padding: 0 16px;
-    height: 60px;
-  }
-
-  /* ซ่อน nav-links ออกไปก่อน (ต้องทำ hamburger menu เพิ่มทีหลัง) */
-  .nav-links {
-    display: none;
-  }
-
-  .logo-text .brand-top {
-    font-size: 18px;
-  }
-
-  /* เมื่อ menu เปิด (Hamburger)*/
-  .nav-links.open {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 60px;
-    left: 0; right: 0;
-    background: white;
-    padding: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    gap: 16px;
-    z-index: 999;
-  }
-
-  .hamburger {
-    display: flex;  /* ← แสดงเฉพาะมือถือ */
-  }
-
-  /* --- HERO --- */
-  .hero {
-    margin-top: 60px;
-    padding: 48px 20px;
-    min-height: auto;
-  }
-
-  .hero h1 {
-    font-size: 40px;
-  }
-
-  .hero h1 .brand-line2 {
-    font-size: 30px;
-  }
-
-  .hero-tagline {
-    font-size: 14px;
-  }
-
-  .hero p {
-    font-size: 13px;
-  }
-
-  .hero-btns {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .btn-primary,
-  .btn-outline {
-    width: 50%;
-    justify-content: center;
-  }
-
-  /* --- CERT BAR --- */
-  .cert-bar {
-    margin: 0 12px;
-    padding: 20px 16px;
-    gap: 25px;
-    display: flex;
+  /* Navbar: แยก 2 แถว — row1: logo + buttons, row2: nav links */
+  #navbar {
+    height: auto;
+    min-height: 68px;
+    padding: 10px 20px;
     flex-wrap: wrap;
-    justify-content: center;
+    gap: 0;
+    align-items: center;
   }
-
-  .cert-item {
-    width: calc(33.333% - 25px); /* 3 ต่อแถว */
+ 
+  .nav-logo {
+    order: 1;
+    gap: 8px;
+    flex-shrink: 0;
   }
-  
-
-  /* --- ABOUT --- */
-  .about {
-    padding: 40px 20px;
-    grid-template-columns: 1fr;  /* stack แนวตั้ง */
-    gap: 28px;
-  }
-
-  .about-img {
-    height: 200px;
-    overflow: hidden;
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2x2 แทน 4x1 */
-  }
-
-  .section-title {
-    font-size: 26px;
-  }
-
-  /* --- PRODUCTS --- */
-  .products {
-    padding: 48px 20px;
-  }
-
-  .products-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 คอลัมน์ */
-    gap: 16px;
-  }
-
-  /* --- WHY CHOOSE US --- */
-  .why {
-    padding: 40px 20px 48px;
-  }
-
-  .why-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 24px;
-  }
-
-  /* ดัน item ที่ 4 ให้เริ่มที่ column 1 ของแถวใหม่ตรงกลาง */
-  .why-item:nth-child(4) {
-    grid-column-start: 1;
-  }
-
-  .why-item{
-    width: calc(33.333% - 16px); /* แถวบน: 3 ชิ้น */
-    min-width: 120px;
-  }
-
-  .why-item h4{
-    font-size: 10px;
-  }
-  .why-item p{
-    font-size: 10px;
-  }
-
-  .why-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 คอลัมน์ */
-    gap: 24px;
-  }
-
-
-  /* --- FOOTER --- */
-  footer {
-    padding: 48px 20px 24px;
-  }
-
-  .footer-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-  }
-
-  .footer-brand {
-    grid-column: 1 / -1;
-  }
-
-
-}
-
-
-
-/* ===== SMALL MOBILE (max-width: 480px) ===== */
-@media (max-width: 480px) {
-
-  .logo-icon img {
-    width: 48px;
-    height: 48px;
-  }
-
-  .brand-top {
-    font-size: 12px;
-  }
-  .brand-sub {
-    font-size: 8px;
-    letter-spacing: 0.8px;
-  }
-
+ 
+  .logo-icon img        { width: 44px; height: 44px; }
+  .logo-text .brand-top { font-size: 18px; letter-spacing: 0.5px; }
+  .logo-text .brand-sub { font-size: 9px; }
+ 
   .nav-right {
-    gap: 12px;
+    order: 2;
+    margin-left: auto;
+    gap: 10px;
   }
-
-
-  /* ===== NAVBAR BUTTONS ===== */
-
-  .lang-btn {
-    padding: 4px 8px;
-    font-size: 8px;
-    gap: 6px;
-    border-radius: 6px;
-    min-height: 32px;
+ 
+  .lang-btn  { padding: 6px 10px; font-size: 10px; }
+  .quote-btn { padding: 8px 14px; font-size: 10px; letter-spacing: 0.3px; white-space: nowrap; }
+ 
+  /* nav-links เต็มแถวล่าง มีเส้นกั้น */
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+    padding: 8px 0 6px;
+    margin: 0;
+    border-top: 1px solid var(--gray-mid);
   }
-
-  .lang-caret {
-    font-size: 8px;
-  }
-
-  .quote-btn {
-    padding: 8px 10px;
-    font-size: 8px;
-    gap: 6px;
-    border-radius: 5px;
+ 
+  .nav-links a {
+    font-size: 10px;
+    font-weight: 700;
     letter-spacing: 0.2px;
-    min-height: 28px;
+    white-space: nowrap;
+  }
+ 
+  /* Hero: ดัน margin-top ให้พ้น navbar 2 แถว */
+  .hero {
+    margin-top: 108px;
+    padding: 60px 48px;
+  }
+ 
+  .hero h1              { font-size: 58px; }
+  .hero h1 .brand-line2 { font-size: 46px; }
+  .hero p               { font-size: 15px; max-width: 520px; }
+ 
+  /* Cert bar: 3 คอลัมน์ → แถวบน 3 ไอคอน, แถวล่าง 2 ไอคอนจัดกลาง */
+  .cert-bar {
+    margin: 0 20px;
+    padding: 20px 26px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 14px;
     
   }
-
-  /* hamburger */
-  .hamburger {
-    margin-left: 8px;
+  .cert-item       { gap: 12px; flex: 1; }
+  .cert-icon       { width: 44px; height: 44px; font-size: 17px; }
+  .cert-icon img   { width: 32px; height: 32px; }
+  .cert-title      { font-size: 10px; }
+  .cert-desc       { font-size: 8px; }
+ 
+  .about          { padding: 70px 40px; gap: 40px; }
+ 
+  .products       { padding: 60px 40px; }
+  .products-grid  { grid-template-columns: repeat(3, 1fr); }
+ 
+  .why            { padding: 40px 40px 55px; }
+  .why-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 48px;
   }
-  .hamburger span {
-    width: 22px;
+  .why-item       { flex: 0 0 calc(33.333% - 28px); max-width: 220px; padding: 0 6px; }
+  .why-item p     { font-size: 10px; }
 
-  }
-
-
-
-  /* --- HERO --- */
-  .hero {
-    padding: 28px 16px 32px;
-  }
-
-  .hero h1 {
-    font-size: 26px;
-  }
-
-  .hero h1 .brand-line2 {
-    font-size: 20px;
-  }
-
-  .hero-welcome {
-    font-size: 11px;
-    letter-spacing: 1.5px;
-  }
-
-  .hero-tagline {
-    font-size: 12px;
-    margin: 10px 0 8px;
-  }
-  
-  .hero-btns {
-    gap: 10px;
-    margin-top: 18px;
+  footer          { padding: 60px 40px 30px; }
+  .footer-grid    { grid-template-columns: repeat(4, 1fr);/* col 4 อัน */ gap: 24px 20px; }
+  .footer-brand {
+    grid-column: 1 / -1;   /* เต็มแถว บนสุด */
+    display: block;
     align-items: flex-start;
+    gap: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    margin-bottom: 8px;
+  }
+  .footer-brand p { max-width: 400px; margin-top: 8px; }
+
+}
+
+
+
+/* ===========================================
+   15. RESPONSIVE — MOBILE (max-width: 925px)
+   =========================================== */
+@media (max-width: 925px) {
+
+  #navbar {
+    padding: 10px 16px;
+    min-height: 68px;
+    justify-content: space-between;
   }
 
-  .hero p {
-    font-size: 12px;
-    margin-bottom: 20px;
+  /* Dropdown menu */
+  .nav-links {
+    position: absolute;
+    top: 68px;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    display: none;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   }
+
+  .nav-links.open,
+  .nav-links.active { display: flex; }
+
+  .logo-icon img { width: 46px; height: 46px; }
+
+  .logo-text .brand-top { font-size: 13px; }
+  .logo-text .brand-sub { font-size: 8px; }
+
+  .nav-right { margin-left: auto; gap: 12px; }
+
+  .lang-btn  { padding: 6px 10px; font-size: 10px; min-height: 36px; border-radius: 6px; }
+  .quote-btn { padding: 8px 12px; font-size: 10px; min-height: 36px; border-radius: 6px; white-space: nowrap; }
+
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin-left: 12px;
+  }
+
+  .hamburger span { width: 22px; }
+
+  .hero { margin-top: 60px; padding: 48px 20px; min-height: auto; }
+  .hero h1 { font-size: 40px; }
+  .hero h1 .brand-line2 { font-size: 30px; }
+  .hero-tagline { font-size: 14px; }
+  .hero p { font-size: 13px; }
+  .hero-btns { flex-direction: column; gap: 12px; }
+
+  .btn-primary,
+  .btn-outline { width: 50%; justify-content: center; }
+
+  .cert-bar { margin: 0 12px; padding: 20px 16px; gap: 25px; }
+  .cert-item { width: calc(33.333% - 25px); }
+
+  .about { padding: 40px 20px; grid-template-columns: 1fr; gap: 28px; }
+  .about-img { height: 200px; }
+  .section-title { font-size: 26px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .products { padding: 48px 20px; }
+  .products-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+  .why { padding: 40px 20px 48px; }
+  .why-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+  }
+  .why-item { width: calc(33.333% - 16px); min-width: 120px; }
+  .why-item h4,
+  .why-item p { font-size: 10px; }
+
+  footer { padding: 48px 20px 24px; }
+  .footer-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+
+
+
+/* ===========================================
+   16. RESPONSIVE — SMALL MOBILE (max-width: 480px)
+   =========================================== */
+@media (max-width: 480px) {
+
+  .logo-icon img { width: 48px; height: 48px; }
+  .logo-text .brand-top { font-size: 12px; }
+  .logo-text .brand-sub { font-size: 8px; letter-spacing: 0.8px; }
+
+  .nav-right { gap: 12px; }
+
+  .lang-btn  { padding: 4px 8px; font-size: 8px; gap: 6px; min-height: 32px; border-radius: 6px; }
+  .lang-caret { font-size: 8px; }
+  .quote-btn { padding: 8px 10px; font-size: 8px; gap: 6px; min-height: 28px; border-radius: 5px; letter-spacing: 0.2px; }
+
+  .hamburger { margin-left: 8px; }
+  .hamburger span { width: 22px; }
+
+  .hero { padding: 28px 16px 32px; }
+  .hero h1 { font-size: 26px; }
+  .hero h1 .brand-line2 { font-size: 20px; }
+  .hero-welcome { font-size: 11px; letter-spacing: 1.5px; }
+  .hero-tagline { font-size: 12px; margin: 10px 0 8px; }
+  .hero p { font-size: 12px; margin-bottom: 20px; }
+  .hero-btns { gap: 10px; margin-top: 18px; align-items: flex-start; }
 
   .btn-primary,
   .btn-outline {
@@ -1209,260 +1030,58 @@ footer {
     min-height: 38px;
   }
 
-  .btn-primary {
-    letter-spacing: 0.4px;
-  }
-  .btn-outline {
-    border-width: 1.5px;
-  }
+  .btn-primary { letter-spacing: 0.4px; }
+  .btn-outline  { border-width: 1.5px; }
+  .btn-dark     { font-size: 10px; padding: 10px 16px; }
 
-
-  /* --- CERT BAR --- */
-  .cert-bar {
-    margin: 0 8px;
-    padding: 16px 8px;
-    gap: 16px 8px;
-    border-radius: 8px;
-  }
-
+  .cert-bar { margin: 0 8px; padding: 16px 8px; gap: 16px 8px; border-radius: 8px; }
   .cert-item {
     flex-direction: column;
     align-items: center;
     text-align: center;
     width: calc(33.333% - 12px);
   }
+  .cert-icon { width: 40px; height: 40px; font-size: 16px; }
+  .cert-icon img { width: 28px; height: 28px; }
+  .cert-title { font-size: 9px; letter-spacing: 0; }
+  .cert-desc  { font-size: 7px; margin-top: 2px; }
 
-  .cert-icon {
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
-  }
+  .about { padding: 36px 16px; gap: 24px; }
+  .about-img { height: 180px; border-radius: 10px; }
+  .section-label { font-size: 9px; letter-spacing: 1.5px; margin-bottom: 6px; }
+  .section-title { font-size: 18px; line-height: 1.25; margin-bottom: 10px; }
+  .about-text { font-size: 11px; margin-bottom: 16px; }
+  .stats-grid { gap: 14px; margin-bottom: 20px; }
+  .stat-num   { font-size: 18px; }
+  .stat-label { font-size: 10px; }
 
-  .cert-icon img {
-    width: 28px;
-    height: 28px;
-  }
+  .products { padding: 32px 22px; }
+  .products .section-label   { font-size: 9px; letter-spacing: 1.8px; }
+  .products .section-title   { font-size: 20px; padding: 0 4px; }
+  .products .section-subtitle { font-size: 11px; padding: 0 8px; }
+  .products-grid { grid-template-columns: 1fr; gap: 14px; margin-top: 22px; }
 
-  .cert-title {
-    font-size: 9px;
-    letter-spacing: 0;
-  }
+  .product-card { border-radius: 10px; }
+  .product-img  { height: 135px; }
+  .product-info { padding: 14px 12px 16px; text-align: center; }
+  .product-name { font-size: 13px; margin-bottom: 6px; }
+  .product-desc { font-size: 11px; margin-bottom: 12px; }
+  .btn-view { width: 100%; justify-content: center; padding: 9px 12px; font-size: 10px; border-radius: 5px; }
 
-  .cert-desc {
-    font-size: 8px;
-    margin-top: 1px;
-  }
+  .why { padding: 36px 16px 40px; }
+  .why-grid { gap: 16px; margin-top: 28px; }
+  .why-icon { width: 44px; height: 44px; font-size: 18px; margin-bottom: 10px; }
+  .why-item h4 { font-size: 10px; margin-bottom: 6px; }
+  .why-item p  { font-size: 10px; }
 
-  /* --- ABOUT --- */
-  .about {
-    padding: 36px 16px;
-    gap: 24px;
-  }
-
-  .about-img {
-    height: 180px;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  .about-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .section-label {
-    font-size: 9px;
-    letter-spacing: 1.5px;
-    margin-bottom: 6px;
-  }
-
-  .section-title {
-    font-size: 18px;
-    line-height: 1.25;
-    margin-bottom: 10px;
-  }
-
-  .about-text {
-    font-size: 11px;
-    line-height: 1.7;
-    margin-bottom: 16px;
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-    margin-bottom: 20px;
-  }
-
-  .stat-num {
-    font-size: 18px;
-  }
-
-  .stat-label {
-    font-size: 10px;
-  }
-
-  .btn-dark {
-    font-size: 10px;
-    padding: 10px 16px;
-  }
-
-
-/* --- PRODUCTS --- */
-.products {
-  padding: 32px 22px;
-  overflow: hidden;
+  footer { padding: 36px 16px 20px; }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 22px 16px; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-logo-text .brand-top { font-size: 18px; }
+  .footer-logo-text .brand-sub { font-size: 9px; }
+  .footer-brand p          { font-size: 11px; }
+  .footer-col h5           { font-size: 10px; margin-bottom: 10px; }
+  .footer-col ul li a      { font-size: 10px; }
+  .footer-contact-item     { font-size: 10px; }
+  .footer-bottom           { font-size: 10px; padding-top: 16px; }
 }
-
-.products .section-label {
-  font-size: 9px;
-  letter-spacing: 1.8px;
-  margin-bottom: 6px;
-}
-
-.products .section-title {
-  font-size: 20px;
-  line-height: 1.2;
-  margin-bottom: 8px;
-  padding: 0 4px;
-}
-
-.products .section-subtitle {
-  font-size: 11px;
-  line-height: 1.5;
-  padding: 0 8px;
-}
-
-.products-grid {
-  grid-template-columns: 1fr;
-  gap: 14px;
-  margin-top: 22px;
-}
-
-.product-card {
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.07);
-}
-
-.product-img {
-  height: 135px;
-}
-
-.product-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.product-info {
-  padding: 14px 12px 16px;
-  text-align: center;
-}
-
-.product-name {
-  font-size: 13px;
-  margin-bottom: 6px;
-  line-height: 1.3;
-  letter-spacing: 0.2px;
-}
-
-.product-desc {
-  font-size: 11px;
-  line-height: 1.5;
-  margin-bottom: 12px;
-}
-
-.btn-view {
-  width: 100%;
-  justify-content: center;
-  padding: 9px 12px;
-  font-size: 10px;
-  border-radius: 5px;
-}
-
-  /* --- WHY CHOOSE US --- */
-  .why {
-    padding: 36px 16px 40px;
-  }
-
-  .why-grid {
-    gap: 16px;
-    margin-top: 28px;
-  }
-
-  .why-icon {
-    width: 44px;
-    height: 44px;
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-
-  .why-item h4 {
-    font-size: 10px;
-    margin-bottom: 6px;
-  }
-
-  .why-item p {
-    font-size: 10px;
-  }
-
-  /* --- FOOTER --- */
-  footer {
-    padding: 36px 16px 20px;
-  }
-
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 22px 16px;
-  }
-
-  .footer-brand {
-    grid-column: 1 / -1;
-  }
-
-  .footer-logo-text .brand-top {
-    font-size: 18px;
-  }
-
-  .footer-logo-text .brand-sub {
-    font-size: 9px;
-  }
-
-  .footer-brand p {
-    font-size: 11px;
-  }
-
-  .footer-col h5 {
-    font-size: 10px;
-    margin-bottom: 10px;
-  }
-
-  .footer-col ul li a {
-    font-size: 10px;
-  }
-
-  .footer-contact-item {
-    font-size: 10px;
-  }
-
-  .footer-bottom {
-    font-size: 10px;
-    padding-top: 16px;
-  }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
